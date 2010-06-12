@@ -58,7 +58,7 @@ var measures = 1;
 // beats per measure
 var beats = 4;
 // beats per minute
-var bpm = 60;
+var bpm = 180;
 
 // the current beat position
 var position = 0;
@@ -74,43 +74,70 @@ var drums = {
 var song = [
   [  /* TRACK 1 - kicks  */  
     [  /* measure 1 */ 
-      [drums.kick], 
+      [drums.kick],
+      [],
+      [], 
       [],
       [drums.kick], 
-      [drums.kick]
+      [],
+      [], 
+      []  
     ],
     [ /* measure 2 */
-      [drums.kick], 
+      [drums.kick],
       [],
-      [drums.kick], 
-      [drums.kick]
-    ]         
+      [],
+      [drums.kick],
+      [],
+      [],
+      [],
+      []
+    ]            
   ],
   [  /* TRACK 2 - snares */  
     [  /* measure 1 */ 
       [],
+      [],
       [drums.snare],
       [],
-      [drums.snare]],
+      [],
+      [drums.snare],
+      [],
+      [],
+
+    ],
     [ /* measure 2 */ 
       [],
-      [drums.snare],
       [],
-      [drums.snare]
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+
     ]
   ],
   [  /* TRACK 3 - hats   */  
     [  /* measure 1 */ 
-      [drums.tick],
-      [drums.tick],
-      [drums.tick],
-      [drums.tick]
+    [drums.tick],
+    [],
+    [drums.tick],
+    [],
+    [drums.tick],
+    [],
+    [drums.tick],
+    [],
     ],
     [  /* measure 2 */ 
-      [drums.tick],
-      [drums.tick],
-      [drums.tick],
-      [drums.tick]
+    [drums.tick],
+    [],
+    [drums.tick],
+    [],
+    [drums.tick],
+    [],
+    [drums.tick],
+    [],
     ]
   ]
 ];
@@ -152,7 +179,7 @@ function step(steps){
     sys.puts(('measure ' + (position + 1)).blue.underline);
     // for every beat, pop a sound off theMix
     for(var t = 0; t < song.length; t++){
-      var sound = steps.pop();
+      var sound = steps.shift();
       if(sound.length){
         sys.puts(('playing ' + sound).grey);
         play.start(sound);
