@@ -87,8 +87,8 @@ var song = [
       [drums.kick],
       [],
       [],
-      [drums.kick],
       [],
+      [drums.kick],
       [],
       [],
       []
@@ -101,43 +101,43 @@ var song = [
       [drums.snare],
       [],
       [],
-      [drums.snare],
       [],
+      [drums.snare],
       [],
 
     ],
     [ /* measure 2 */ 
       [],
       [],
+      [drums.snare],
       [],
       [],
       [],
-      [],
-      [],
-      [],
+      [drums.snare],
+      []
 
     ]
   ],
   [  /* TRACK 3 - hats   */  
     [  /* measure 1 */ 
     [drums.tick],
-    [],
     [drums.tick],
-    [],
     [drums.tick],
-    [],
     [drums.tick],
-    [],
+    [drums.tick],
+    [drums.tick],
+    [drums.tick],
+    [drums.tick],
     ],
     [  /* measure 2 */ 
     [drums.tick],
-    [],
     [drums.tick],
-    [],
     [drums.tick],
-    [],
     [drums.tick],
-    [],
+    [drums.tick],
+    [drums.tick],
+    [drums.tick],
+    [drums.tick],
     ]
   ]
 ];
