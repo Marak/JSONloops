@@ -67,81 +67,85 @@ var position = 0;
 var drums = {
   kick : './wavs/kick.wav',
   snare : './wavs/snare.wav',
-  tick : './wavs/tick.wav'
+  tick : './wavs/tick.wav',
+  phazed : './wavs/phazed.wav'
 };
 
 // simple 4 beat drum loop, notice the empty arrays which represent beats with no note playing
 var song = [
   [  /* TRACK 1 - kicks  */  
     [  /* measure 1 */ 
-      [drums.kick],
-      [],
-      [], 
-      [],
-      [drums.kick], 
-      [],
-      [], 
-      []  
-    ],
-    [ /* measure 2 */
-      [drums.kick],
-      [],
-      [],
-      [],
-      [drums.kick],
-      [],
-      [],
-      []
-    ]            
-  ],
-  [  /* TRACK 2 - snares */  
-    [  /* measure 1 */ 
-      [],
-      [],
-      [drums.snare],
-      [],
-      [],
-      [],
-      [drums.snare],
-      [],
-
-    ],
-    [ /* measure 2 */ 
-      [],
-      [],
-      [drums.snare],
-      [],
-      [],
-      [],
-      [drums.snare],
-      []
-
+      [drums.tick],
+      [drums.tick],
+      [drums.tick], 
+      [drums.tick],
+      [drums.tick], 
+      [drums.tick],
+      [drums.tick], 
+      [drums.tick]  
     ]
   ],
-  [  /* TRACK 3 - hats   */  
+  [  /* TRACK 1 - kicks  */  
     [  /* measure 1 */ 
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    ],
-    [  /* measure 2 */ 
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
+      [drums.kick],
+      [drums.kick],
+      [drums.kick], 
+      [drums.kick],
+      [drums.kick], 
+      [drums.kick],
+      [drums.kick], 
+      [drums.kick]  
+    ]
+  ],
+  [  /* TRACK 1 - kicks  */  
+    [  /* measure 1 */ 
+      [drums.snare],
+      [drums.snare],
+      [drums.snare], 
+      [drums.snare],
+      [drums.snare], 
+      [drums.snare],
+      [drums.snare], 
+      [drums.snare]  
+    ]
+  ],
+  [  /* TRACK 1 - kicks  */  
+    [  /* measure 1 */ 
+      [drums.phazed],
+      [drums.phazed],
+      [drums.phazed], 
+      [drums.phazed],
+      [drums.phazed], 
+      [drums.phazed],
+      [drums.phazed], 
+      [drums.phazed]  
     ]
   ]
 ];
 
+
+var track = 0, measure=0, pos = 0;
+setInterval(function(){
+
+  for (var i = 0; i<song.length; i++)
+  {
+    sys.puts(song[i][measure][pos]);
+    play.start(song[i][measure][pos]);
+  }
+  pos++
+  if (pos > 7) { 
+    pos = 0;
+    measure++;
+  }
+  
+  if (measure >= song[0].length) {
+    measure = 0;
+    pos = 0;
+  }
+}, 60000/bpm);
+
+
+/*
 var theMix = [];
 var theTracks = [];
 function json_loop( song ){
@@ -151,19 +155,19 @@ function json_loop( song ){
   // for every measure in the track
   for(var m = 0; m < song[0].length; m++){
 //    sys.puts('measure ' + m);
-   // sys.puts(JSON.stringify(song[0][m]));
+    sys.puts(JSON.stringify(song[0][m], true , "  "));
     for(var b = 0; b < song[0][m].length; b++){
-//      sys.puts('beat ' + b);
+      sys.puts('beat ' + b);
       //sys.puts(m,b);
       theMix.push(song[0][m][b]);
       theMix.push(song[1][m][b]);
-      theMix.push(song[2][m][b]);
+      //theMix.push(song[2][m][b]);
     
     }  
   }
 
 
-
+sys.puts(JSON.stringify(theMix, true, "  "));
 
 }
 
@@ -192,4 +196,4 @@ function step(steps){
 
 
 json_loop(song);
-step(theMix);
+step(theMix);*/
