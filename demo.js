@@ -29,7 +29,7 @@ var fs = require('fs');
   // beats per measure
   var beats = 4;
   // beats per minute
-  var bpm = 116;
+  var bpm = 160;
   // the current beat position
   var position = 0;
   var theMix = [];
@@ -37,40 +37,26 @@ var fs = require('fs');
 
 /******* END SEQUENCER CONFIG *****/
 
-function json_loop( song ){
-  // for every measure in the track
-  for(var m = 0; m < song[0].length; m++){
-    for(var b = 0; b < song[0][m].length; b++){
-      theMix.push(eval(song[0][m][b]));
-      //theMix.push(song[1][m][b]);
-      //theMix.push(song[2][m][b]);
-    }  
-  }
-}
+/******** START JSONlooper *******/
+var track = 0, measure=0, pos = 0;
+setInterval(function(){
 
-function step(steps){
-  if(!steps.length){
-    sys.puts('***looped***'.red);
-    position = 0;
-    json_loop(song);
-    step(theMix);
-    return;
+  for (var i = 0; i<song.length; i++)
+  {
+    var wav = eval(song[i][measure][pos].toString());
+    sys.puts(pos.toString().yellow + ' ' + song[i][measure][pos].toString().grey + ' => '.green + wav.cyan);
+    play.start(wav);
   }
-  setTimeout(function(){
-    sys.puts(('measure ' + (position + 1)).blue.underline);
-    // for every beat, pop a sound off theMix
-    for(var t = 0; t < song.length; t++){
-      var sound = steps.shift();
-      if(sound.length){
-        sys.puts(('playing ' + sound).grey);
-        play.start(sound);
-      }
-    }
-    position++;
-    step(steps);
-  },60000 / bpm);
-}
-
-/**** START UP THE LOOPER ****/
-json_loop(song);
-step(theMix);
+  pos++
+  if (pos > 7) { 
+    pos = 0;
+    measure++;
+  }
+  
+  if (measure >= song[0].length) {
+    sys.puts('##LOOPING##'.red);
+    measure = 0;
+    pos = 0;
+  }
+}, 60000/bpm);
+/******* END JSONlooper ******/
