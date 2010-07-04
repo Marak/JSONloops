@@ -1,24 +1,23 @@
-// simple 4 beat drum loop, notice the empty arrays which represent beats with no note playing
-var song = [
+[
   [  /* TRACK 1 - kicks  */  
     [  /* measure 1 */ 
+      ["drums.kick"],
       [],
+      ["drums.kick"], 
       [],
-      [], 
+      ["drums.kick"],
       [],
-      [],
-      [],
-      [], 
+      ["drums.kick"], 
       []  
     ],
     [ /* measure 2 */
+      ["drums.kick"],
       [],
+      ["drums.kick"],
       [],
+      ["drums.kick"],
       [],
-      [],
-      [],
-      [],
-      [],
+      ["drums.kick"],
       []
     ]            
   ],
@@ -26,10 +25,10 @@ var song = [
     [  /* measure 1 */ 
       [],
       [],
+      ["drums.snare"],
       [],
       [],
-      [],
-      [],
+      ["drums.snare"],
       [],
       [],
 
@@ -37,10 +36,10 @@ var song = [
     [ /* measure 2 */ 
       [],
       [],
+      ["drums.snare"],
       [],
       [],
-      [],
-      [],
+      ["drums.snare"],
       [],
       []
 
@@ -48,24 +47,24 @@ var song = [
   ],
   [  /* TRACK 3 - hats   */  
     [  /* measure 1 */ 
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
+    ["drums.tick"],
+    ["drums.tick"],
+    ["drums.tick"],
+    ["drums.tick"],
+    ["drums.tick"],
+    ["drums.tick"],
+    ["drums.tick"],
+    ["drums.tick"],
     ],
     [  /* measure 2 */ 
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
-    [drums.tick],
+    ["drums.tick"],
+    ["drums.tick"],
+    ["drums.tick"],
+    ["drums.tick"],
+    ["drums.tick"],
+    ["drums.tick"],
+    ["drums.tick"],
+    ["drums.tick"],
     ]
   ]
 ];

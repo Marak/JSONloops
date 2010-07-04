@@ -10,53 +10,11 @@ JSONloops is a javascript audio sequencer that runs on JSON arrays of sounds
     *     MEASURES
     *       BEATS
   
+
   *******************************/
-var sys = require('sys');
-var colors = require('./vendor/color');
-var play = require('./vendor/play');
-var fs = require('fs');
 
-/******* SEQUENCER CONFIG *******/
 
-  var song = fs.readFileSync('./loops/metronome.json');
-  song = JSON.parse(song.toString());
-  
-  var drums = require('./kits/drums').drums;
-  var metronome = require('./kits/metronome').metronome;
+var looper = require('./lib/looper'),
+sys = require('sys');
 
-  // measures in song
-  var measures = 1;
-  // beats per measure
-  var beats = 4;
-  // beats per minute
-  var bpm = 160;
-  // the current beat position
-  var position = 0;
-  var theMix = [];
-  var theTracks = [];
-
-/******* END SEQUENCER CONFIG *****/
-
-/******** START JSONlooper *******/
-var track = 0, measure=0, pos = 0;
-setInterval(function(){
-
-  for (var i = 0; i<song.length; i++)
-  {
-    var wav = eval(song[i][measure][pos].toString());
-    sys.puts(pos.toString().yellow + ' ' + song[i][measure][pos].toString().grey + ' => '.green + wav.cyan);
-    play.start(wav);
-  }
-  pos++
-  if (pos > 7) { 
-    pos = 0;
-    measure++;
-  }
-  
-  if (measure >= song[0].length) {
-    sys.puts('##LOOPING##'.red);
-    measure = 0;
-    pos = 0;
-  }
-}, 60000/bpm);
-/******* END JSONlooper ******/
+sys.puts(JSON.stringify(looper.loop()));
