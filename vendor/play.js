@@ -44,13 +44,12 @@ else{
     , spawn = require('child_process').spawn
     , child;
 
-  var colors = require('./color'); // import color.js for fun!
-
+ 
   var play = exports;
 
   // say stuff, speak
   exports.sound = function(text, callback){
-    sys.puts('playing'.magenta + '=>'.yellow + text.blue);
+    sys.puts('playing'.magenta + '=>'.yellow + text.toString().blue);
     var commands = [text];
     var childD = spawn("afplay", commands);
     childD.stdout.setEncoding('ascii');
@@ -61,7 +60,7 @@ else{
       if(code == null || signal != null) {
         sys.puts('couldnt talk, had an error ' + '[code: '+ code + '] ' + '[signal: ' + signal + ']');
       }
-      sys.puts( 'completed'.green + '=>'.yellow + text.magenta);
+      //sys.puts( 'completed'.green + '=>'.yellow + text.toString().magenta);
       //callback(); // i think i have to apply / call the arguments here
     });
   }

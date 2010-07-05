@@ -1,23 +1,23 @@
 [
   [  /* TRACK 1 - kicks  */  
     [  /* measure 1 */ 
-      ["drums.kick"],
+      [drums.kick],
       [],
-      ["drums.kick"], 
+      [], 
       [],
-      ["drums.kick"],
+      [drums.kick],
       [],
-      ["drums.kick"], 
+      [], 
       []  
     ],
     [ /* measure 2 */
-      ["drums.kick"],
+      [drums.kick],
       [],
-      ["drums.kick"],
       [],
-      ["drums.kick"],
       [],
-      ["drums.kick"],
+      [drums.kick],
+      [],
+      [],
       []
     ]            
   ],
@@ -25,46 +25,46 @@
     [  /* measure 1 */ 
       [],
       [],
-      ["drums.snare"],
+      [drums.snare],
       [],
       [],
-      ["drums.snare"],
       [],
+      [drums.snare],
       [],
 
     ],
     [ /* measure 2 */ 
       [],
       [],
-      ["drums.snare"],
+      [drums.snare],
       [],
       [],
-      ["drums.snare"],
       [],
+      [drums.snare],
       []
 
     ]
   ],
   [  /* TRACK 3 - hats   */  
     [  /* measure 1 */ 
-    ["drums.tick"],
-    ["drums.tick"],
-    ["drums.tick"],
-    ["drums.tick"],
-    ["drums.tick"],
-    ["drums.tick"],
-    ["drums.tick"],
-    ["drums.tick"],
+    [drums.tick],
+    [drums.tick],
+    [drums.tick],
+    [drums.tick],
+    [drums.tick],
+    [drums.tick],
+    [drums.tick],
+    [drums.tick],
     ],
     [  /* measure 2 */ 
-    ["drums.tick"],
-    ["drums.tick"],
-    ["drums.tick"],
-    ["drums.tick"],
-    ["drums.tick"],
-    ["drums.tick"],
-    ["drums.tick"],
-    ["drums.tick"],
+    [drums.tick],
+    [drums.tick],
+    [drums.tick],
+    [drums.tick],
+    [drums.tick],
+    [drums.tick],
+    [drums.tick],
+    [drums.tick],
     ]
   ]
 ];
