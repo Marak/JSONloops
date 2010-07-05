@@ -15,6 +15,12 @@ JSONloops is a javascript audio sequencer that runs on JSON arrays of sounds
 
 
 var looper = require('./lib/looper'),
+fs = require('fs'),
 sys = require('sys');
 
-sys.puts(JSON.stringify(looper.loop()));
+
+//var song = fs.readFileSync('./loops/metronome.json');
+var song = fs.readFileSync('./loops/nyc.json');
+var drums = require('./kits/drums').drums;
+
+looper.loop(song, drums);
