@@ -19,10 +19,14 @@ if(typeof exports === 'undefined'){
 
   */
 
+
   var play = {
     sound: function ( wav ) {
-      debug.log(wav);
-      
+      wav = wav.toString() || '';
+      wav = wav.replace('./wavs/','');
+      wav = wav.replace('.wav','');
+      debug.log('wav ' + wav);
+
       var e = $('#' + wav);
       debug.log(e);
       $('#alarm').remove();

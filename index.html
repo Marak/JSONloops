@@ -5,10 +5,32 @@
 
     <script type="text/javascript" src = "./vendor/play.js"></script>
 
+    <script type="text/javascript" src = "./lib/looper.js"></script>
+
+    <!-- <script type="text/javascript" src = "./kits/drums.js"></script> -->
+
     <script type="text/javascript">
+    
+     var drums = {
+       kick : './wavs/kick.wav',
+       snare : './wavs/snare.wav',
+       tick : './wavs/tick.wav'
+     };
+     
+     var metronome = {
+       beep : './wavs/tick.wav'
+     };
+     
     
       $(document).ready(function(e){
         
+        // load song
+        $.get('./loops/nyc.json', function(rsp){
+          
+          // play loop
+          loop( rsp, drums);
+          //debug.log(rsp);
+        });
         
       });
     
@@ -21,7 +43,7 @@
     <h1>JSONloops - a javascript audio sequencer that runs on JSON arrays of sounds</h1>
     <embed id = "kick" autostart="false" src = "./wavs/kick.wav"/>
     <embed id = "snare" autostart="false" src = "./wavs/snare.wav"/>
-    <embed id = "hat" autostart="false" src = "./wavs/tick.wav"/>
+    <embed id = "tick" autostart="false" src = "./wavs/tick.wav"/>
 
 
   </body>
