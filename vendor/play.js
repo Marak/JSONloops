@@ -22,17 +22,23 @@ if(typeof exports === 'undefined'){
 
   var play = {
     sound: function ( wav ) {
+      
+      var og = wav;
       wav = wav.toString() || '';
       wav = wav.replace('./wavs/','');
       wav = wav.replace('.wav','');
       debug.log('wav ' + wav);
 
-      var e = $('#' + wav);
-      debug.log(e);
-      $('#alarm').remove();
 
-      $(e).attr('autostart',true);
-      $('body').append(e);
+
+      var newID = wav + new Date().getTime();
+      $('body').append('<embed id = "' + newID + '" autostart="true" src = "' + og + '"/>');
+      //$('#' + );
+
+      
+      // set autostart of embed to start playing
+      //$(e).attr('autostart',true);
+      //$('body').append(e);
       
       
       return wav;
