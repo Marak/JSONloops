@@ -13,13 +13,7 @@ table tr {
 	background: -moz-linear-gradient(top,  #494949,  #373737); /* Firefox 3.6+ */	
 }
 
-table tr img {
-	zoom: 50%;
-}
 
-table tr:hover img {
-	zoom: 100%;
-}
 
 table td {
 	border-top: 1px solid #222;

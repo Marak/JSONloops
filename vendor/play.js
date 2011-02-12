@@ -59,7 +59,7 @@ else{
 
   // say stuff, speak
   exports.sound = function(text, callback){
-    sys.puts('playing'.magenta + '=>'.yellow + text.toString().blue);
+    sys.puts('playing'.grey + ' -> '.yellow + text.toString().magenta);
     var commands = [text];
     var childD = spawn("afplay", commands);
     childD.stdout.setEncoding('ascii');
