@@ -1,0 +1,84 @@
+
+body {
+	background: #ffffff; /* old browsers */
+	background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* webkit */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* ie */
+}
+
+table tr {
+	background: #494949; /* Non-CSS3 browsers */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#494949', endColorstr='#373737'); /* IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#494949), to(#373737)); /* Webkit browsers */
+	background: -moz-linear-gradient(top,  #494949,  #373737); /* Firefox 3.6+ */	
+}
+
+table tr img {
+	zoom: 50%;
+}
+
+table tr:hover img {
+	zoom: 100%;
+}
+
+table td {
+	border-top: 1px solid #222;
+	padding: 10px;
+}
+
+table td.active {
+	background: #606c88; /* old browsers */
+	background: -moz-linear-gradient(top, #606c88 0%, #3f4c6b 100%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#606c88), color-stop(100%,#3f4c6b)); /* webkit */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606c88', endColorstr='#3f4c6b',GradientType=0 ); /* ie */	
+}
+
+table {
+	-moz-box-shadow: 0px 3px 7px #222;
+	-webkit-box-shadow: 0px 3px 7px #222;
+	box-shadow: 0px 3px 7px #222;
+}
+
+#transport {
+	margin: 100px;
+	color: #fff;
+	background-color: #333;
+	-moz-box-shadow: 0px 3px 7px #333;
+	-webkit-box-shadow: 0px 3px 7px #333;
+	box-shadow: 0px 3px 7px #333;	
+	margin-bottom: 0px;	
+	padding: 10px;
+	-moz-border-radius-topleft: 10px;  
+  -moz-border-radius-topright: 10px; 
+  -webkit-border-top-left-radius: 10px;
+  -webkit-border-top-right-radius: 10px;
+}
+
+#sequencer-container {
+	position: relative;
+	margin: 100px;
+	margin-top: 0px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	background-color: #494949;
+	padding-bottom: 40px;
+	-moz-box-shadow: 0px 3px 7px #333;
+	-webkit-box-shadow: 0px 3px 7px #333;
+	box-shadow: 0px 3px 7px #333;
+	overflow-x: scroll;	
+	overflow-y: hidden;		
+}
+
+#sequencer-container::-webkit-scrollbar, #sequencer-container::-webkit-scrollbar {
+   -webkit-border-radius: 10px;
+}
+
+#sequencer-container::-webkit-scrollbar-thumb, #sequencer-container::-webkit-scrollbar-thumb {
+  background: #373737;
+  -webkit-border-radius: 10px;
+}
+
+#sequencer-container::-webkit-scrollbar-thumb {
+	height: 5px;
+  background: #373737;
+}
