@@ -1,6 +1,7 @@
 // play.js - Marak Squires
 // Mit yo, copy paste us some credit
-
+var irrKlang = require(__dirname + "/../../node-irrklang/lib/irrklang").irrKlang,
+    player   = new irrKlang();
 
 if(typeof exports === 'undefined'){
 
@@ -58,8 +59,12 @@ else{
   var play = exports;
 
   // say stuff, speak
-  exports.sound = function(text, callback){
-    sys.puts('playing'.grey + ' -> '.yellow + text.toString().magenta);
+  exports.sound = function(filename, callback){
+    sys.puts('playing'.grey + ' -> '.yellow + filename.toString().magenta);
+
+    player.play(filename);
+
+    /*
     var commands = [text];
     var childD = spawn("afplay", commands);
     childD.stdout.setEncoding('ascii');
@@ -73,6 +78,7 @@ else{
       //sys.puts( 'completed'.green + '=>'.yellow + text.toString().magenta);
       //callback(); // i think i have to apply / call the arguments here
     });
+    */
   }
   
   
