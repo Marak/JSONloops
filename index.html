@@ -1,30 +1,60 @@
 <html>
 <head>
 <title>JSONLoops Basic HTML / JavaScript Control Interface</title>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+<script src="lib/jquery-ui-1.8.9.custom/js/jquery-1.4.4.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/jquery-ui-1.8.9.custom/js/jquery-ui-1.8.9.custom.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" src="/dnode.js"></script>
 <link rel="stylesheet" href="index.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <script type="text/javascript">
-  
+
     var r, theSong, sounds = [], socket, connecting, playing = false;
 
     $(window).load(function () {
+      
       connectToServer();
       
       // jQuery UI events
       $('#play').click(function(){
         if (playing) {
           r.stop();
+          $(this).addClass("pause");
           playing = false;
         }
         else {
           r.start();
+          $(this).removeClass("pause");
           playing = true;
         }
       });
       
       $('#addTrack').click(function(){
         addTrack();
+      });
+      
+      var report;
+      
+      $("#sequencer-container img").live("click", function() {
+        $("#sounds-container-dynamic").css({
+          "top": $(this).offset().top - 31,
+          "left": $(this).offset().left - 31
+        }).fadeIn();
+        
+        var parent = $(this).parent();
+        
+        report = {
+          track: parent.attr("data-track"),
+          measure: parent.attr("data-measure"),
+          beat: parent.attr("data-beat")
+        };        
+        
+      });
+      
+      $("#sounds-container-dynamic img").click(function() {
+        
+        report.sound = $(this)[0].name;
+        
+        console.log(report);
+        $("#sounds-container-dynamic").fadeOut();
       });
       
     });
@@ -67,13 +97,12 @@
             if(f == "") {
               f = "rest";
             }
-            $('#sequencer tr:last').append('<td class = "' + style + '"><img src="img/' + f + '.png"/></td>');
+            $('#sequencer tr:last').append('<td class = "' + style + '" data-track="'+t+'" data-measure="'+m+'" data-beat="'+b+'"><img src="img/' + f + '.png"/></td>');
 
-            var el = $('#sequencer td.active:first');
-            if(el.length) {
-              $('#sequencer-container').scrollLeft((el.position().left/el.width()) * el.width())
-            }
-
+            // var el = $('#sequencer td.active:first');
+            //            if(el.length) {
+            //              $('#sequencer-container').scrollLeft((el.position().left/el.width()) * el.width())
+            //            }
           }
         }
       }
@@ -105,14 +134,69 @@
 </script>
 </head>
 <body>
+  <center>
+    <h1>JSONLoops</h2>
+  </center>
   <div id="transport">
-    <button id="play">Play / Pause</button>
-    <button id="addTrack">Add Track</button>
+    <button id="play"></button>
+    <button id="addTrack"></button>
   </div>
+
   <div id="sequencer-container">
     <table id="sequencer" border="0" cellpadding="0" cellspacing="0"></table>
   </div>
 
-  
+  <div id="sounds-header">
+    Sound Previews
+  </div>
+  <div id="sounds-container">
+    <table id="sounds" border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class=""><img src="img/rest.png" name="rest"></td>          
+          <td class=""><img src="img/kick.png" name="kick"></td>
+          <td class=""><img src="img/snare.png" name="snare"></td>
+          <td class=""><img src="img/tick.png" name="tick"></td>
+          <td class=""><img src="img/rest.png"></td>
+          <td class=""><img src="img/rest.png"></td>
+          <td class=""><img src="img/rest.png"></td>
+          <td class=""><img src="img/rest.png"></td>
+          <td class=""><img src="img/rest.png"></td>
+          <td class=""><img src="img/rest.png"></td>
+          <td class=""><img src="img/rest.png"></td>    
+          <td class=""><img src="img/rest.png"></td>
+          <td class=""><img src="img/rest.png"></td>
+          <td class=""><img src="img/rest.png"></td>
+          <td class=""><img src="img/rest.png"></td>
+          <td class=""><img src="img/rest.png"></td>
+          <td class=""><img src="img/rest.png"></td>                                                                            
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="sounds-container-dynamic">
+    <table id="sounds" border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class=""><img src="img/rest.png" name="rest"></td>
+        </tr>
+        <tr>
+          <td class=""><img src="img/kick.png" name="kick"></td>
+        </tr>
+        <tr>          
+          <td class=""><img src="img/snare.png" name="snare"></td>
+        </tr>
+        <tr>                    
+          <td class=""><img src="img/tick.png" name="tick"></td>
+        </tr>
+        <tr>                    
+          <td class=""><img src="img/rest.png"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+    
 </body>
 </html>
