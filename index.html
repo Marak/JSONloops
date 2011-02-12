@@ -1,50 +1,82 @@
 <html>
-  <head>
-    <script type="text/javascript" src = "./vendor/jquery.js"></script>
-    <script type="text/javascript" src = "./vendor/debug.js"></script>
+<head>
+<title>JSONLoops Basic HTML / JavaScript Control Interface</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/dnode.js"></script>
+<script type="text/javascript">
+  
+    var r, theSong, sounds = [];
 
-    <script type="text/javascript" src = "./vendor/play.js"></script>
-
-    <script type="text/javascript" src = "./lib/looper.js"></script>
-
-    <!-- <script type="text/javascript" src = "./kits/drums.js"></script> -->
-
-    <script type="text/javascript">
-    
-     var drums = {
-       kick : './wavs/kick.wav',
-       snare : './wavs/snare.wav',
-       tick : './wavs/tick.wav'
-     };
-     
-     var metronome = {
-       beep : './wavs/tick.wav'
-     };
-     
-    
-      $(document).ready(function(e){
-        
-        // load song
-        $.get('./loops/nyc.json', function(rsp){
-          
-          // play loop
-          loop( rsp, drums);
-          //debug.log(rsp);
-        });
-        
+    $(window).load(function () {
+      DNode(function () {
+          this.step = function (sequencer) {
+            console.log(arguments);
+            console.log(sequencer);
+            renderSequencer(sequencer);
+          };
+      }).connect(function (remote) {
+        r = remote;
       });
-    
+    });
 
-    
-    </script>
-    
-  </head>
-  <body>
-    <h1>JSONloops - a javascript audio sequencer that runs on JSON arrays of sounds</h1>
-    <embed id = "kick" autostart="false" src = "./wavs/kick.wav"/>
-    <embed id = "snare" autostart="false" src = "./wavs/snare.wav"/>
-    <embed id = "tick" autostart="false" src = "./wavs/tick.wav"/>
+    function renderSequencer(sequencer) {
+      theSong = sequencer.song;
+      $('#sequencer tr').remove();
+      var position = sequencer.position,
+      cnt = 0;
+      for (var t = 0; t < sequencer.song.length; t++) {
+        cnt = 0;
+        // Create a new row in the table for every track
+        $('#sequencer').append('<tr></tr>');
+        
+        // Create cells for each beat in that track
+        for (var m = 0; m < sequencer.song[t].length; m++) {
+          for (var b = 0; b < sequencer.song[t][m].length; b++) {
+            cnt++;
+            var beat = sequencer.song[t][m][b];
+            if (!beat.length) {
+              beat = '&nbsp;';
+            }
+            var style = "";
+            if(cnt === position + 1) {
+              style = "active"; 
+            }
+            $('#sequencer tr:last').append('<td class = ' + style + '>' + renderDropDown(beat, sounds) + '</td>');
+          }
+        }
+      }
+    }
 
+    function renderDropDown(active, sounds) {
+      
+      return active;
+      var html = '';
+      
+      html += '<select>';
+      html += '<option>' + active + '</option>';
+      
+      sounds.forEach(function(v, i){
+        html += '<option>' + v + '</option>';
+      });
+      
+      html += '</select>';
+      
+      return html;
+    }
 
-  </body>
+</script>
+<style>
+  .active {
+    background-color:red;
+  }
+</style>
+</head>
+<body>
+  <table id="sequencer" border="1"></table>
+
+  <div id="transport">
+    <button>play / pause</button>
+  </div>
+  
+</body>
 </html>
