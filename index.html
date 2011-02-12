@@ -5,19 +5,39 @@
 <script type="text/javascript" src="/dnode.js"></script>
 <script type="text/javascript">
   
-    var r, theSong, sounds = [];
+    var r, theSong, sounds = [], socket, connecting, playing = false;
 
     $(window).load(function () {
-      DNode(function () {
+      connectToServer();
+      
+      // jQuery UI events
+      $('#play').click(function(){
+        if (playing) {
+          r.stop();
+          playing = false;
+        }
+        else {
+          r.start();
+          playing = true;
+        }
+      });
+      
+      $('#addTrack').click(function(){
+        addTrack();
+      });
+      
+    });
+
+    function connectToServer() {
+      socket = DNode(function () {
           this.step = function (sequencer) {
-            console.log(arguments);
-            console.log(sequencer);
             renderSequencer(sequencer);
           };
       }).connect(function (remote) {
+        playing = true;
         r = remote;
       });
-    });
+    }
 
     function renderSequencer(sequencer) {
       theSong = sequencer.song;
@@ -63,6 +83,12 @@
       
       return html;
     }
+    
+    function addTrack() {
+      theSong.push(theSong[0]);
+      console.dir(theSong);
+      r.create_mix(JSON.stringify(theSong));
+    }
 
 </script>
 <style>
@@ -75,7 +101,8 @@
   <table id="sequencer" border="1"></table>
 
   <div id="transport">
-    <button>play / pause</button>
+    <button id="play">Play / Pause</button>
+    <button id="addTrack">Add Track</button>
   </div>
   
 </body>
