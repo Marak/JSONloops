@@ -154,12 +154,66 @@
     function connectToServer() {
       socket = DNode(function () {
         this.step = function (sequencer) {
-          renderSequencer(sequencer);
+          
+          if($('#sequencer tr').length === 0) {
+            renderSequencer(sequencer);
+          }
+          else {
+            updateSequencer(sequencer);
+            
+          }
         };
       }).connect(function (remote) {
         playing = true;
         r = remote;
       });
+    }
+
+    function updateSequencer(sequencer) {
+      
+      $('#sequencer tr td').removeClass('active');
+      
+      
+      // Go through each note and check to see if its up to date, if not update that shit
+      $('#sequencer tr td').each(function(i, v){
+        var b, m, t, n;
+        b = $(v).attr('data-beat');
+        m = $(v).attr('data-measure');
+        t = $(v).attr('data-track');
+        n = $(v).attr('data-note');
+        
+        
+        var c = sequencer.song[t][m][b][0] || '';
+        
+        if(c !== n){
+          console.log('update this note');
+          $(v).attr('data-note', c);
+          
+          var f = c.substr(c.lastIndexOf("/")+1, c.lastIndexOf(".")-7);
+          if(f == '') {
+            f = 'rest';
+          }
+          
+          $(v).html('<img style="zoom:'+(iconZoom||'100')+'%" src="img/' + f + '.png" name="'+f+'"/>');
+          
+          
+        }
+
+
+        var myPos = i;
+        
+        
+        if(myPos === sequencer.position){
+          $("#sequencer tr").each(function() {
+            $("td", this).eq(myPos).addClass('active col')
+          })
+          
+        }
+        
+      });
+
+      
+      
     }
 
     function renderSequencer(sequencer) {
@@ -176,7 +230,6 @@
         // Create cells for each beat in that track
         for (var m = 0; m < sequencer.song[t].length; m++) {
           for (var b = 0; b < sequencer.song[t][m].length; b++) {
-            
             cnt++;
             var beat = sequencer.song[t][m][b];
             if (!beat.length) {
@@ -195,16 +248,11 @@
             if(f == '') {
               f = 'rest';
             }
-
-            $('#sequencer tr:last').append('<td class = "' + style + '" data-track="'+t+'" data-measure="'+m+'" data-beat="'+b+'"><img style="zoom:'+(iconZoom||'100')+'%" src="img/' + f + '.png" name="'+f+'"/></td>');
+            $('#sequencer tr:last').append('<td class = "' + style + '" data-note = "'+beat+'" data-track="'+t+'" data-measure="'+m+'" data-beat="'+b+'"><img style="zoom:'+(iconZoom||'100')+'%" src="img/' + f + '.png" name="'+f+'"/></td>');
 
             $("#bpmLevel").text(sequencer.bpm);
             $("#bpm").slider("option", "value", sequencer.bpm);
 
-            // var el = $('#sequencer td.active:first');
-            //            if(el.length) {
-            //              $('#sequencer-container').scrollLeft((el.position().left/el.width()) * el.width())
-            //            }
           }
         }
       }

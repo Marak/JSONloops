@@ -67,7 +67,7 @@ else{
 
   // say stuff, speak
   exports.sound = function(filename, callback){
-    sys.puts('playing'.grey + ' -> '.yellow + filename.toString().magenta);
+    //sys.puts('playing'.grey + ' -> '.yellow + filename.toString().magenta);
 
     player.play(filename);
 
