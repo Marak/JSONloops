@@ -69,6 +69,10 @@ function LoopServer (client, con) {
   this.volume = function(volume) {
     sequencer.set_volume(volume);
   }
+  
+  this.beat = function(track, measure, beat, wav) {
+    sequencer.set_beat(track, measure, beat, wav);
+  }
     
 }
 
