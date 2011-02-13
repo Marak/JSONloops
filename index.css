@@ -85,6 +85,8 @@ h1 {
   -webkit-border-top-left-radius: 0px;
   -webkit-border-top-right-radius: 0px;
 
+	background: transparent url('img/return.png') no-repeat center right;
+	padding-right: 70px;
 }
 
 #sequencer-container, #sounds-container {
@@ -98,8 +100,7 @@ h1 {
 	padding-bottom: 20px;
 	-moz-box-shadow: 0px 3px 7px #333;
 	-webkit-box-shadow: 0px 3px 7px #333;
-	box-shadow: 0px 3px 7px #333;	
-	padding-right: 100px;
+	box-shadow: 0px 3px 7px #333;
 }
 
 #sounds-container-dynamic {
