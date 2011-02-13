@@ -29,6 +29,7 @@
         max: 150,
         value: 100, 
         slide: function(a, b) {
+          $("#sounds-container-dynamic").fadeOut();
           iconZoom = b.value;
           $("#sequencer-container img").css("zoom", iconZoom + "%");
         } 
@@ -62,12 +63,28 @@
 
       var report;
 
+      $("#sequencer-container").scroll(function() {
+        $("#sounds-container-dynamic").fadeOut();
+      });
+
       $("#sequencer-container img").live("click", function() {
 
-        $("#sounds-container-dynamic").css({
-          "top": $(this).offset().top - 31,
-          "left": $(this).offset().left - 31
-        }).fadeIn();
+        if(iconZoom == 100) {
+          $("#sounds-container-dynamic").css({
+            "top": $(this).offset().top - 31,
+            "left": $(this).offset().left - 31
+          }).fadeIn();          
+        }
+        else {
+          $("#sounds-container-dynamic").css({
+            "top": ($("#sequencer-container").position().top + 40),
+            "left": ($("body").width()/2) - ($(this).width()/2)
+          }).fadeIn();
+        }
+        
+        $("#zoom").slider("option", "value", 100);
+        iconZoom = 100;
+        $("#sequencer-container img").css("zoom", "100%");        
 
         var parent = $(this).parent();
 
