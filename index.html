@@ -61,9 +61,9 @@
 
     function connectToServer() {
       socket = DNode(function () {
-          this.step = function (sequencer) {
-            renderSequencer(sequencer);
-          };
+        this.step = function (sequencer) {
+          renderSequencer(sequencer);
+        };
       }).connect(function (remote) {
         playing = true;
         r = remote;
