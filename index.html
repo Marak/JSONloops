@@ -24,6 +24,10 @@
       
       $("body").disableSelection();
       
+      $(window).resize(function() {
+        $("#sounds-container-dynamic").fadeOut();
+      });
+      
       $("#zoom").slider({
         min: 20,
         max: 150,
@@ -42,8 +46,9 @@
         value: 80,
         slide: function(a, b) {        
           $("#masterVolumeLevel").text(b.value);
+          r.volume(b.value/100);
         } 
-      });      
+      });
       
       $("#bpm").slider({
         min: 40,
@@ -250,8 +255,10 @@
             }
             $('#sequencer tr:last').append('<td class = "' + style + '" data-note = "'+beat+'" data-track="'+t+'" data-measure="'+m+'" data-beat="'+b+'"><img style="zoom:'+(iconZoom||'100')+'%" src="img/' + f + '.png" name="'+f+'"/></td>');
 
-            $("#bpmLevel").text(sequencer.bpm);
+            var volume = Math.round(sequencer.volume*100);            $("#bpmLevel").text(sequencer.bpm);
+            $("#masterVolumeLevel").text(volume);
             $("#bpm").slider("option", "value", sequencer.bpm);
+            $("#masterVolume").slider("option", "value", volume);
 
           }
         }
@@ -321,6 +328,7 @@
       <table id="sounds" border="0" cellpadding="0" cellspacing="0">
         <tbody>
           <tr>
+            <td class=""><img src="img/rest.png" name="rest" title="Rest"></td>
             <td class=""><img src="img/kick.png" name="kick" title="Kick"></td>
             <td class=""><img src="img/snare.png" name="snare" title="Snare"></td>
             <td class=""><img src="img/tick.png" name="tick" title="High Hat"></td>
@@ -328,11 +336,11 @@
             <td class=""><img src="img/crash.png" name="crash" title="Crash"></td>
             <td class=""><img src="img/ride.png" name="ride" title="Ride"></td>
             <td class=""><img src="img/divide.png"></td>
-            <td class=""><img src="img/rest.png" name="rest" title="Rest"></td>            
-            <td class=""><img src="img/a.png" name="pianorole" title="Piano Role"></td>
+            <td class=""><img src="img/piano.png" name="pianorole" title="Piano Role"></td>
+            <td class=""><img src="img/bell.png" name="bell" title="Cow Bell"></td>            
             <td class=""><img src="img/tamb.png" name="tambourine" title="Tambourine"></td>
-            <td class=""><img src="img/bongoSmall.png" name="bongoSmall" title="Small Bongo"></td>            
-            <td class=""><img src="img/bongoBig.png" name="bongoBig" title="Large Bongo"></td>    
+            <td class=""><img src="img/bongoSmall.png" name="bongoSmall" title="Small Bongo"></td>
+            <td class=""><img src="img/bongoBig.png" name="bongoBig" title="Large Bongo"></td>
           </tr>
         </tbody>
       </table>
@@ -358,14 +366,34 @@
           <td class=""><a name="tick"><img src="img/tick.png"></a></td>
         </tr>
         <tr>           
-          <td class=""><a name="tom"><img src="img/tom.png" name="tom" title="Tom"></td>
+          <td class=""><a name="tom"><img src="img/tom.png" name="tom" title="Tom"></a></td>
         </tr>
         <tr>           
-          <td class=""><a name="crash"><img src="img/crash.png" name="crash" title="Crash"></td>
+          <td class=""><a name="crash"><img src="img/crash.png" name="crash" title="Crash"></a></td>
         </tr>
-        <tr>           
-          <td class=""><a name="ride"><img src="img/ride.png" name="ride" title="Ride"></td>
-        </tr>                     
+        <tr>
+          <td class=""><a name="ride"><img src="img/ride.png" name="ride" title="Ride"></a></td>
+        </tr>
+        <tr>
+          <td class=""><a name="piano"><img src="img/piano.png" name="pianorole" title="Piano Role"></a></td>
+        </tr>
+        <tr>
+          <td class=""><a name="bell"><img src="img/bell.png" name="bell" title="Cow Bell"></a></td>
+        </td>        
+        <tr>
+          <td class=""><a name="piano"><img src="img/tamb.png" name="tambourine" title="Tambourine"></a></td>
+        </td>
+        <tr>
+          <td class=""><a name="bongoSmall"><img src="img/bongoSmall.png" name="bongoSmall" title="Small Bongo"></a></td>
+        </td>
+        <tr>
+          <td class=""><a name="bongoBig"><img src="img/bongoBig.png" name="bongoBig" title="Large Bongo"></a></td>        
+        </td>
+
+        
+        
+        
+        
         
       </tbody>
     </table>
