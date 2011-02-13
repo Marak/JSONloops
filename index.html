@@ -138,6 +138,7 @@
     }
 
     function renderSequencer(sequencer) {
+
       theSong = sequencer.song;
       $('#sequencer tr').remove();
       var position = sequencer.position,
@@ -150,20 +151,26 @@
         // Create cells for each beat in that track
         for (var m = 0; m < sequencer.song[t].length; m++) {
           for (var b = 0; b < sequencer.song[t][m].length; b++) {
+            
             cnt++;
             var beat = sequencer.song[t][m][b];
             if (!beat.length) {
-              beat = '&nbsp;';
+              beat = '';
             }
             var style = "";
             if(cnt === position + 1) {
               style = "active"; 
             }
-            var s = renderDropDown(beat, sounds);
-            var f = s[0].substr(s[0].lastIndexOf("/")+1, s[0].lastIndexOf(".")-7); //wtf, this is stupid...
-            if(f == "") {
-              f = "rest";
+            
+            if(typeof beat != "string") {
+              beat = beat[0];
             }
+            
+            var f = beat.substr(beat.lastIndexOf("/")+1, beat.lastIndexOf(".")-7);
+            if(f == '') {
+              f = 'rest';
+            }
+
             $('#sequencer tr:last').append('<td class = "' + style + '" data-track="'+t+'" data-measure="'+m+'" data-beat="'+b+'"><img style="zoom:'+(iconZoom||'100')+'%" src="img/' + f + '.png" name="'+f+'"/></td>');
 
             window.x = sequencer;
@@ -227,7 +234,6 @@
       <table id="sounds" border="0" cellpadding="0" cellspacing="0">
         <tbody>
           <tr>
-            <td class=""><img src="img/rest.png" name="rest" title="Rest"></td>          
             <td class=""><img src="img/kick.png" name="kick" title="Kick"></td>
             <td class=""><img src="img/snare.png" name="snare" title="Snare"></td>
             <td class=""><img src="img/tick.png" name="tick" title="High Hat"></td>
@@ -235,15 +241,11 @@
             <td class=""><img src="img/crash.png" name="crash" title="Crash"></td>
             <td class=""><img src="img/ride.png" name="ride" title="Ride"></td>
             <td class=""><img src="img/divide.png"></td>
+            <td class=""><img src="img/rest.png" name="rest" title="Rest"></td>            
             <td class=""><img src="img/a.png" name="pianorole" title="Piano Role"></td>
             <td class=""><img src="img/tamb.png" name="tambourine" title="Tambourine"></td>
             <td class=""><img src="img/bongoSmall.png" name="bongoSmall" title="Small Bongo"></td>            
             <td class=""><img src="img/bongoBig.png" name="bongoBig" title="Large Bongo"></td>    
-            <td class=""><img src="img/rest.png"></td>
-            <td class=""><img src="img/rest.png"></td>
-            <td class=""><img src="img/rest.png"></td>
-            <td class=""><img src="img/rest.png"></td>
-            <td class=""><img src="img/rest.png"></td>                                                                            
           </tr>
         </tbody>
       </table>
