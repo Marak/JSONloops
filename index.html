@@ -288,8 +288,19 @@
     
     function addTrack() {
       
-      theSong.push(JSON.parse(JSON.stringify(theSong[0])));
-      console.dir(theSong.length);
+      //theSong.push(JSON.parse(JSON.stringify(theSong[0])));
+      console.log(JSON.stringify(theSong[0]));
+      var ml= theSong[0].length, m=0, b=0, bl = theSong[0][0].length, beats, track = [];
+
+      for (m; m<ml; m++) {
+        beats = [];
+        for (b=0; b<bl; b++) {
+          beats.push([]);
+        }
+        track.push(beats);
+      }
+      console.log(track);
+      theSong.push(track);
       r.create_mix(JSON.stringify(theSong));
     }
 
