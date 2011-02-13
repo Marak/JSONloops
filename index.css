@@ -80,6 +80,10 @@ h1 {
 	display: block;
 }
 
+#sequencer-mask {
+	display: none;
+}
+
 #sequencer-container {
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -91,6 +95,16 @@ h1 {
 
 	background: transparent url('img/return.png') no-repeat center right;
 	padding-right: 70px;
+}
+
+#sequencer-mask {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	left: 0px;
+	bottom: 0px;
+	background: #000;
+	opacity: 0.5;
 }
 
 
