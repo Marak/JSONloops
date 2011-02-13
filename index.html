@@ -160,7 +160,7 @@
       socket = DNode(function () {
         this.step = function (sequencer) {
           
-          if($('#sequencer tr').length === 0) {
+          if(($('#sequencer tr').length === 0) || $('#sequencer tr').length !== sequencer.song.length) {
             renderSequencer(sequencer);
           }
           else {
@@ -204,7 +204,6 @@
           
         }
 
-
         var myPos = i;
         
         
@@ -216,8 +215,6 @@
         }
         
       });
-
-      
       
     }
 
@@ -283,6 +280,7 @@
     }
     
     function addTrack() {
+      
       theSong.push(JSON.parse(JSON.stringify(theSong[0])));
       console.dir(theSong.length);
       r.create_mix(JSON.stringify(theSong));
