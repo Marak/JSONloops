@@ -126,8 +126,8 @@
     }
     
     function addTrack() {
-      theSong.push(theSong[0]);
-      console.dir(theSong);
+      theSong.push(JSON.parse(JSON.stringify(theSong[0])));
+      console.dir(theSong.length);
       r.create_mix(JSON.stringify(theSong));
     }
 
