@@ -7,11 +7,13 @@ JSONLoops is a multi-user audio sequencer reminiscent of Fruityloops. Audio play
 
    npm install JSONloops
 
+You'll also need to install irrKlang and compile node as 32 bit. We'll be replacing this with a much easier process soon.
+
 ## Usage
 
-  git clone https://github.com/marak/jsonloops
-  cd jsonloops
-  node server.js
+    git clone https://github.com/marak/jsonloops
+    cd jsonloops
+    node server.js
   
 The audio sequencer will now start playing on your local machine, you'll hear sounds. To access a control interface for your JSONloops server, visit http://localhost:8080/
 
