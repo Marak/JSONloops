@@ -54,39 +54,16 @@ if(typeof exports === 'undefined'){
   };
 }
 else{
-  
+
   var sys = require('sys')
     , http = require('http')
-    , colors = require('./color')  
-    , exec = require('child_process').exec
-    , spawn = require('child_process').spawn
-    , child;
+    , colors = require('./color');
 
- 
   var play = exports;
 
   // say stuff, speak
-  exports.sound = function(filename, callback){
+  exports.sound = function(filename, volume){
     sys.puts('playing'.grey + ' -> '.yellow + filename.toString().magenta);
-
-    player.play(filename);
-
-    /*
-    var commands = [text];
-    var childD = spawn("afplay", commands);
-    childD.stdout.setEncoding('ascii');
-    childD.stderr.setEncoding('ascii');  
-    childD.stderr.addListener('data', function(data){});
-    childD.stdout.addListener('data', function(data){});
-    childD.addListener('exit', function (code, signal) {
-      if(code == null || signal != null) {
-        sys.puts('couldnt talk, had an error ' + '[code: '+ code + '] ' + '[signal: ' + signal + ']');
-      }
-      //sys.puts( 'completed'.green + '=>'.yellow + text.toString().magenta);
-      //callback(); // i think i have to apply / call the arguments here
-    });
-    */
+    player.play(filename, volume);
   }
-  
-  
 }
