@@ -9,5 +9,5 @@ exports.drums = {
   bongosmall : './wavs/bongosmall.wav',
   piano : './wavs/piano.wav',
   ride : './wavs/ride.wav',
-  tambourene : './wavs/tambourene.wav'  
+  tambourine : './wavs/tambourine.wav'  
 };
