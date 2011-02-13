@@ -165,7 +165,9 @@
     function connectToServer() {
       socket = DNode(function () {
         this.step = function (sequencer) {
-          
+          if (sequencer.song) {
+            theSong = sequencer.song;
+          }
           if(($('#sequencer tr').length === 0) || $('#sequencer tr').length !== sequencer.song.length) {
             renderSequencer(sequencer);
           }
@@ -305,7 +307,7 @@
         }
         track.push(beats);
       }
-      console.log(track);
+
       theSong.push(track);
       r.create_mix(JSON.stringify(theSong));
     }
