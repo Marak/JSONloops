@@ -18,6 +18,10 @@ table tr {
 	background: -moz-linear-gradient(top,  #494949,  #373737); /* Firefox 3.6+ */	
 }
 
+#extras tr {
+	background: none;
+}
+
 table td {
 	border-bottom: 1px solid #222;
 	padding: 10px;
@@ -89,18 +93,30 @@ h1 {
 	padding-right: 70px;
 }
 
-#sequencer-container, #sounds-container {
-	position: relative;
+#extras-container {
+	bottom-margin: 0px;
+	background-color: #333;
+}
+
+#sequencer-container, #sounds-container, #extras-container {
 	margin: 20px;
+	position: relative;
 	margin-top: 0px;
 	margin-bottom: 0px;	
-	background-color: #494949;
 	overflow-x: scroll;	
 	overflow-y: hidden;		
-	padding-bottom: 20px;
 	-moz-box-shadow: 0px 3px 7px #333;
 	-webkit-box-shadow: 0px 3px 7px #333;
 	box-shadow: 0px 3px 7px #333;
+}
+
+#sequencer-container, #sounds-container {
+	background-color: #494949;	
+	padding-bottom: 20px;
+}
+
+#sounds, #extras {
+	width: 100%;
 }
 
 #sounds-container-dynamic {
@@ -119,7 +135,7 @@ h1 {
 	-webkit-box-shadow: 0px 3px 17px #aaa;
 	box-shadow: 0px 3px 17px #aaa;
 	overflow-x: hidden;	
-	overflow-y: scroll;	
+	overflow-y: auto;	
 }
 
 div::-webkit-scrollbar, div::-webkit-scrollbar {
@@ -159,22 +175,33 @@ div::-webkit-scrollbar-thumb {
 	height: 30px;
 }
 
-#down {
+#sounds-button {
 	border: none;
-	background: url('img/down.png') no-repeat scroll top left;
+	background: url('img/sounds.png') no-repeat scroll top left;
 	width: 30px;
 	height: 30px;
 }
 
-#down.up {
+#sounds-button.up {
 	background: url('img/up.png') no-repeat scroll top left;
 }
 
-#previews {
+#previews, #extra-controls {
 	display: none;
 }
 
-#zoom, #bpm {
+#extras-button {
+	border: none;	
+	background: url('img/extras.png') no-repeat scroll top left;
+	width: 30px;
+	height: 30px;
+}
+
+#extras-button.up {
+	background: url('img/up.png') no-repeat scroll top left;
+}
+
+#zoom, #bpm, #masterVolume {
 	height: 2px;
 	color: #000;
 	position: absolute;
@@ -182,8 +209,13 @@ div::-webkit-scrollbar-thumb {
 }
 
 #zoom {
-	left: 130px;
+	left: 150px;
 	width: 150px;	
+}
+
+#masterVolume {
+	width: 100px;	
+	left: 320px;
 }
 
 #bpm {
@@ -191,7 +223,7 @@ div::-webkit-scrollbar-thumb {
 	left: 320px;
 }
 
-#zoom .ui-slider-handle, #bpm .ui-slider-handle {
+#zoom .ui-slider-handle, #bpm .ui-slider-handle, #masterVolume .ui-slider-handle {
 	height: 10px;
 	width: 10px;
 	background: #222;
@@ -200,11 +232,11 @@ div::-webkit-scrollbar-thumb {
 	-moz-border-radius: 10px;	
 }
 
-#zoom .ui-slider, #bpm .ui-slider {
+#zoom .ui-slider, #bpm .ui-slider, #masterVoume .ui-slider{
 	height: 2px;
 }
 
-#zoom.ui-widget-content, #bpm.ui-widget-content {
+#zoom.ui-widget-content, #bpm.ui-widget-content, #masterVolume.ui-widget-content {
 	background: #222;
 	border: 1px solid #6e6e6e;
 }
@@ -212,11 +244,21 @@ div::-webkit-scrollbar-thumb {
 #zoomLabel {
 	position: absolute;
 	top: 5px;
-	left: 185px;
+	left: 205px;
 	color: #666;
 	font-size: 10px;
 	width: 200px;	
 }
+
+#masterVolumeLabel {
+	color: #666;	
+	position: absolute;
+	font-size: 10px;	
+	top: 5px;
+	left: 350px;	
+	width: 200px;
+}
+
 
 #bpmLabel {
 	color: #666;	
