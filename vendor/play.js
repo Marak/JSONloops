@@ -1,6 +1,6 @@
 // play.js - Marak Squires
 // Mit yo, copy paste us some credit
-//var irrKlang = require(__dirname + "/../../node-irrklang/lib/irrklang").irrKlang,
+// var irrKlang = require(__dirname + "/../../node-irrklang/lib/irrklang").irrKlang,
 //    player   = new irrKlang();
 
 if(typeof exports === 'undefined'){

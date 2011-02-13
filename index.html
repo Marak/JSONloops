@@ -11,11 +11,11 @@
     var r, theSong, sounds = [], socket, connecting, playing = false, iconZoom = 100;
 
     $.fn.disableSelection = function() {
-        $(this).attr('unselectable', 'on')
-               .css('-moz-user-select', 'none')
-               .each(function() { 
-                   this.onselectstart = function() { return false; };
-                });
+      $(this).attr('unselectable', 'on')
+        .css('-moz-user-select', 'none')
+        .each(function() { 
+          this.onselectstart = function() { return false; };
+      });
     };
 
     $(window).load(function () {
@@ -27,12 +27,32 @@
       $("#zoom").slider({
         min: 20,
         max: 150,
-        value: 100, 
+        value: 100,
         slide: function(a, b) {
           $("#sounds-container-dynamic").fadeOut();
-          iconZoom = b.value;
+          iconZoom = b.value;          
+          $("#zoomLevel").text(iconZoom);
           $("#sequencer-container img").css("zoom", iconZoom + "%");
         } 
+      });
+      
+      $("#bpm").slider({
+        min: 40,
+        max: 200,
+        value: 180,
+        slide: function(a, b) {
+          $("#bpmLevel").text(b.value); // superficial update
+        },
+        stop: function(a, b) {
+          
+          //
+          // Send this to the server to change the BPM
+          // This should have success feedback that does the following visual update.
+          
+          $("#bpmLevel").text(b.value);
+          console.log(b.value);
+
+        }
       });
       
       // jQuery UI events
@@ -81,10 +101,6 @@
             "left": ($("body").width()/2) - ($(this).width()/2)
           }).fadeIn();
         }
-        
-        $("#zoom").slider("option", "value", 100);
-        iconZoom = 100;
-        $("#sequencer-container img").css("zoom", "100%");        
 
         var parent = $(this).parent();
 
@@ -181,8 +197,6 @@
       console.dir(theSong.length);
       r.create_mix(JSON.stringify(theSong));
     }
-    
-    $("body").disableSelect();
 
 </script>
 </head>
@@ -191,7 +205,10 @@
     <button id="play" title="Play/Pause"></button>
     <button id="addTrack" title="Add Track"></button>
     <button id="down" title="Preview Sounds"></button>
+    <span id="zoomLabel">Zoom <span id="zoomLevel">100</span>%</span>
     <div id="zoom"></div>
+    <span id="bpmLabel">BPM <span id="bpmLevel">180</span></span>
+    <div id="bpm"></div>
     <h1>JSONLoops</h1>
   </div>
   <div id="previews">
