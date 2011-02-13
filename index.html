@@ -42,8 +42,9 @@
         value: 80,
         slide: function(a, b) {        
           $("#masterVolumeLevel").text(b.value);
+          r.volume(b.value/100);
         } 
-      });      
+      });
       
       $("#bpm").slider({
         min: 40,
@@ -197,9 +198,12 @@
             }
 
             $('#sequencer tr:last').append('<td class = "' + style + '" data-track="'+t+'" data-measure="'+m+'" data-beat="'+b+'"><img style="zoom:'+(iconZoom||'100')+'%" src="img/' + f + '.png" name="'+f+'"/></td>');
-
+            
+            var volume = Math.round(sequencer.volume*100);
             $("#bpmLevel").text(sequencer.bpm);
+            $("#masterVolumeLevel").text(volume);
             $("#bpm").slider("option", "value", sequencer.bpm);
+            $("#masterVolume").slider("option", "value", volume);
 
             // var el = $('#sequencer td.active:first');
             //            if(el.length) {
