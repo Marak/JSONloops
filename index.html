@@ -19,7 +19,7 @@
     };
 
     $(window).load(function () {
-      
+
       connectToServer();
       
       $("body").disableSelection();
@@ -155,6 +155,8 @@
         $("#sounds-container-dynamic").fadeOut();
         $("#sequencer-mask").fadeOut();        
       });
+      
+        $("body").delay(500).fadeIn('slow');      
       
     });
 
