@@ -242,3 +242,9 @@ div::-webkit-scrollbar-thumb {
 #subtitle {
 	font-size: 10px;
 }
+
+#uploader-droparea {
+  width:100px;
+  height:100px;
+  background-color: #F0F;
+}

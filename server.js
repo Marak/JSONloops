@@ -71,6 +71,11 @@ function LoopServer (client, con) {
 var connect = require('connect');
 var server = connect.createServer()
     .use(connect.staticProvider(__dirname))
+    .use(connect.router(function(app) {
+      app.post("/wav", function(req, res) {
+        console.log("upload time!")
+      })
+    }))
     .listen(8080);
 
 var DNode = require('dnode');

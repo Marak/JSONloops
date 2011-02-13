@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="lib/jquery-ui-1.8.9.custom/css/ui-lightness/jquery-ui-1.8.9.custom.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <script src="lib/jquery-ui-1.8.9.custom/js/jquery-1.4.4.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="lib/jquery-ui-1.8.9.custom/js/jquery-ui-1.8.9.custom.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="lib/upload.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" src="/dnode.js"></script>
 <link rel="stylesheet" href="index.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <script type="text/javascript">
@@ -207,7 +208,10 @@
       console.dir(theSong.length);
       r.create_mix(JSON.stringify(theSong));
     }
-
+    
+    // setup file uploader
+    // TODO: this lib is lame, ditch it.
+    uploader("uploader-droparea", "uploader-status", "/wav");
 </script>
 </head>
 <body>
@@ -281,7 +285,13 @@
       </tbody>
     </table>
   </div>
-
+  <div id="uploader">
+    <div id="uploader-droparea">
+    </div>
+    <div id="uploader-status">
+      
+    </div>
+  </div>
     
 </body>
 </html>
