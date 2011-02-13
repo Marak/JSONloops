@@ -61,6 +61,10 @@ function LoopServer (client, con) {
   this.start = function ( ) {
     sequencer.start();
   };
+  
+  this.bpm = function( bpm ) {
+    sequencer.set_bpm( bpm );
+  }
     
 }
 

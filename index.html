@@ -42,6 +42,7 @@
         value: 180,
         slide: function(a, b) {
           $("#bpmLevel").text(b.value); // superficial update
+          r.bpm(b.value);
         },
         stop: function(a, b) {
           
