@@ -149,8 +149,10 @@
       $("#sounds-container-dynamic a").click(function() {
         report.sound = $(this)[0].name;
         // Sync up the song
-        theSong[report.track][report.measure][report.beat] = ['./wavs/' + report.sound + '.wav'];
-        r.create_mix(JSON.stringify(theSong));
+        //theSong[report.track][report.measure][report.beat] = ['./wavs/' + report.sound + '.wav'];
+        //r.create_mix(JSON.stringify(theSong));
+        r.beat(report.track, report.measure, report.beat, ['./wavs/' + report.sound + '.wav'])
+        
         $("#sounds-container-dynamic").scrollTop(0);
         $("#sounds-container-dynamic").fadeOut();
         $("#sequencer-mask").fadeOut();        
