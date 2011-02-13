@@ -71,9 +71,11 @@
       
       $('#down').toggle(function() {
         $(this).addClass("up");
+        $("#sounds-container-dynamic").fadeOut();
         $("#previews").slideDown();
       }, function() {
         $(this).removeClass("up");
+        $("#sounds-container-dynamic").fadeOut();        
         $("#previews").slideUp();        
       });
       
