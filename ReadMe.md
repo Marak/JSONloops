@@ -42,5 +42,5 @@ Check out the [nyc.json](https://github.com/Marak/JSONloops/blob/master/loops/ny
 
 [Elijah Insua](https://github.com/tmpvar/) - Writer of C bindings, solver of the hard problems
 
-[Paolo Fragomeni](https://github.com/hij1nx/) - User Experience and User Interface Dominator
+[hij1nx](https://github.com/hij1nx/) - User Experience and User Interface Dominator
 
