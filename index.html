@@ -166,6 +166,11 @@
             }
             $('#sequencer tr:last').append('<td class = "' + style + '" data-track="'+t+'" data-measure="'+m+'" data-beat="'+b+'"><img style="zoom:'+(iconZoom||'100')+'%" src="img/' + f + '.png" name="'+f+'"/></td>');
 
+            window.x = sequencer;
+
+            $("#bpmLevel").text(sequencer.bpm);
+            $("#bpm").slider("option", "value", sequencer.bpm);
+
             // var el = $('#sequencer td.active:first');
             //            if(el.length) {
             //              $('#sequencer-container').scrollLeft((el.position().left/el.width()) * el.width())
@@ -202,13 +207,19 @@
 </head>
 <body>
   <div id="transport">
-    <button id="play" title="Play/Pause"></button>
-    <button id="addTrack" title="Add Track"></button>
-    <button id="down" title="Preview Sounds"></button>
-    <span id="zoomLabel">Zoom <span id="zoomLevel">100</span>%</span>
-    <div id="zoom"></div>
-    <span id="bpmLabel">BPM <span id="bpmLevel">180</span></span>
-    <div id="bpm"></div>
+    <div id="titles">
+      <span id="title">New York Beat</span><br/>
+      <span id="subtitle">Foobar Special</span>
+    </div>
+    <div id="controls">
+      <button id="play" title="Play/Pause"></button>
+      <button id="addTrack" title="Add Track"></button>
+      <button id="down" title="Preview Sounds"></button>
+      <span id="zoomLabel">Zoom <span id="zoomLevel">100</span>%</span>
+      <div id="zoom"></div>
+      <span id="bpmLabel">BPM <span id="bpmLevel">180</span></span>
+      <div id="bpm"></div>
+    </div>
     <h1>JSONLoops</h1>
   </div>
   <div id="previews">
