@@ -169,3 +169,30 @@ div::-webkit-scrollbar-thumb {
 #previews {
 	display: none;
 }
+
+#zoom {
+	height: 2px;
+	width: 200px;
+	color: #000;
+	position: absolute;
+	top: 25px;
+	left: 130px;
+}
+
+#zoom .ui-slider-handle {
+	height: 10px;
+	width: 10px;
+	background: #666 !important;
+	border: 1px solid #6e6e6e;		
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;	
+}
+
+#zoom .ui-slider {
+	height: 2px;
+}
+
+#zoom.ui-widget-content {
+	background: #666 !important;
+	border: 1px solid #6e6e6e;
+}

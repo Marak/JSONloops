@@ -1,13 +1,14 @@
 <html>
 <head>
 <title>JSONLoops Basic HTML / JavaScript Control Interface</title>
+<link rel="stylesheet" href="lib/jquery-ui-1.8.9.custom/css/ui-lightness/jquery-ui-1.8.9.custom.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <script src="lib/jquery-ui-1.8.9.custom/js/jquery-1.4.4.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="lib/jquery-ui-1.8.9.custom/js/jquery-ui-1.8.9.custom.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" src="/dnode.js"></script>
 <link rel="stylesheet" href="index.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <script type="text/javascript">
 
-    var r, theSong, sounds = [], socket, connecting, playing = false;
+    var r, theSong, sounds = [], socket, connecting, playing = false, iconZoom = 100;
 
     $.fn.disableSelection = function() {
         $(this).attr('unselectable', 'on')
@@ -22,6 +23,16 @@
       connectToServer();
       
       $("body").disableSelection();
+      
+      $("#zoom").slider({
+        min: 20,
+        max: 150,
+        value: 100, 
+        slide: function(a, b) {
+          iconZoom = b.value;
+          $("#sequencer-container img").css("zoom", iconZoom + "%");
+        } 
+      });
       
       // jQuery UI events
       $('#play').click(function(){
@@ -120,7 +131,7 @@
             if(f == "") {
               f = "rest";
             }
-            $('#sequencer tr:last').append('<td class = "' + style + '" data-track="'+t+'" data-measure="'+m+'" data-beat="'+b+'"><img src="img/' + f + '.png" name="'+f+'"/></td>');
+            $('#sequencer tr:last').append('<td class = "' + style + '" data-track="'+t+'" data-measure="'+m+'" data-beat="'+b+'"><img style="zoom:'+(iconZoom||'100')+'%" src="img/' + f + '.png" name="'+f+'"/></td>');
 
             // var el = $('#sequencer td.active:first');
             //            if(el.length) {
@@ -163,6 +174,7 @@
     <button id="play" title="Play/Pause"></button>
     <button id="addTrack" title="Add Track"></button>
     <button id="down" title="Preview Sounds"></button>
+    <div id="zoom"></div>
     <h1>JSONLoops</h1>
   </div>
   <div id="previews">
