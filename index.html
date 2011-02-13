@@ -140,13 +140,13 @@
     function renderSequencer(sequencer) {
 
       theSong = sequencer.song;
-      $('#sequencer tr').remove();
+      //$('#sequencer tr').remove();
       var position = sequencer.position,
       cnt = 0;
       for (var t = 0; t < sequencer.song.length; t++) {
         cnt = 0;
         // Create a new row in the table for every track
-        $('#sequencer').append('<tr></tr>');
+        //$('#sequencer').append('<tr></tr>');
         
         // Create cells for each beat in that track
         for (var m = 0; m < sequencer.song[t].length; m++) {
@@ -170,8 +170,19 @@
             if(f == '') {
               f = 'rest';
             }
-
-            $('#sequencer tr:last').append('<td class = "' + style + '" data-track="'+t+'" data-measure="'+m+'" data-beat="'+b+'"><img style="zoom:'+(iconZoom||'100')+'%" src="img/' + f + '.png" name="'+f+'"/></td>');
+            
+            var row =  $('#sequencer tr:nth(' + m + ')');
+            if (row.length < 1) {
+              var row = $('#sequencer').append("<tr></td>")
+            }
+            
+            var col = row.find('td:nth(' + b + ')');
+            if (col.length < 1) {
+              row.append('<td class = "' + style + '" data-track="'+t+'" data-measure="'+m+'" data-beat="'+b+'"><img style="zoom:'+(iconZoom||'100')+'%" src="img/' + f + '.png" name="'+f+'"/></td>');
+            } else {
+              col.find("img").attr("src", 'img/' + f + '.png');
+            }
+            //'<td class = "' + style + '" data-track="'+t+'" data-measure="'+m+'" data-beat="'+b+'"><img style="zoom:'+(iconZoom||'100')+'%" src="img/' + f + '.png" name="'+f+'"/></td>');
 
             $("#bpmLevel").text(sequencer.bpm);
             $("#bpm").slider("option", "value", sequencer.bpm);
