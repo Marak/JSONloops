@@ -216,6 +216,12 @@
         
       });
       
+      var volume = Math.round(sequencer.volume*100);            
+      $("#bpmLevel").text(sequencer.bpm);
+      $("#masterVolumeLevel").text(volume);
+      $("#bpm").slider("option", "value", sequencer.bpm);
+      $("#masterVolume").slider("option", "value", volume);
+      
     }
 
     function renderSequencer(sequencer) {
@@ -252,7 +258,8 @@
             }
             $('#sequencer tr:last').append('<td class = "' + style + '" data-note = "'+beat+'" data-track="'+t+'" data-measure="'+m+'" data-beat="'+b+'"><img style="zoom:'+(iconZoom||'100')+'%" src="img/' + f + '.png" name="'+f+'"/></td>');
 
-            var volume = Math.round(sequencer.volume*100);            $("#bpmLevel").text(sequencer.bpm);
+            var volume = Math.round(sequencer.volume*100);            
+            $("#bpmLevel").text(sequencer.bpm);
             $("#masterVolumeLevel").text(volume);
             $("#bpm").slider("option", "value", sequencer.bpm);
             $("#masterVolume").slider("option", "value", volume);
