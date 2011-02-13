@@ -1,5 +1,6 @@
 
 body {
+	display: none;
 	font-family: Trebuchet MS,Tahoma,Arial,sans-serif;
 	background: #e2e2e2; /* old browsers */
 	background: -moz-linear-gradient(top, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%); /* firefox */
