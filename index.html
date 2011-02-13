@@ -106,22 +106,28 @@
         $("#sounds-container-dynamic").fadeOut();
       });
 
-      $("#sequencer-container img").live("click", function() {
+      $("#sequencer-container").live("click", function(e) {
+
+        var note = e.target;
+        if($(note).get(0).tagName !== "IMG") {
+          console.log($(note).get(0).tagName);
+          return false;
+        }
 
         if(iconZoom == 100) {
           $("#sounds-container-dynamic").css({
-            "top": $(this).offset().top - 31,
-            "left": $(this).offset().left - 31
+            "top": $(note).offset().top - 31,
+            "left": $(note).offset().left - 31
           }).fadeIn();          
         }
         else {
           $("#sounds-container-dynamic").css({
             "top": ($("#sequencer-container").position().top + 40),
-            "left": ($("body").width()/2) - ($(this).width()/2)
+            "left": ($("body").width()/2) - ($(note).width()/2)
           }).fadeIn();
         }
 
-        var parent = $(this).parent();
+        var parent = $(note).parent();
 
         report = {
           track: parent.attr("data-track"),
@@ -130,7 +136,7 @@
         };
 
         $('#sounds-container-dynamic').scrollTop(0);
-        $('#sounds-container-dynamic').scrollTop($("#sounds-inline a[name='"+$(this)[0].name+"']").position().top - 31);
+        $('#sounds-container-dynamic').scrollTop($("#sounds-inline a[name='"+$(note)[0].name+"']").position().top - 31);
 
       });
       
