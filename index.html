@@ -173,8 +173,6 @@
 
             $('#sequencer tr:last').append('<td class = "' + style + '" data-track="'+t+'" data-measure="'+m+'" data-beat="'+b+'"><img style="zoom:'+(iconZoom||'100')+'%" src="img/' + f + '.png" name="'+f+'"/></td>');
 
-            window.x = sequencer;
-
             $("#bpmLevel").text(sequencer.bpm);
             $("#bpm").slider("option", "value", sequencer.bpm);
 
