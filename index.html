@@ -9,9 +9,19 @@
 
     var r, theSong, sounds = [], socket, connecting, playing = false;
 
+    $.fn.disableSelection = function() {
+        $(this).attr('unselectable', 'on')
+               .css('-moz-user-select', 'none')
+               .each(function() { 
+                   this.onselectstart = function() { return false; };
+                });
+    };
+
     $(window).load(function () {
       
       connectToServer();
+      
+      $("body").disableSelection();
       
       // jQuery UI events
       $('#play').click(function(){
@@ -25,6 +35,14 @@
           $(this).removeClass("pause");
           playing = true;
         }
+      });
+      
+      $('#down').toggle(function() {
+        $(this).addClass("up");
+        $("#previews").slideDown();
+      }, function() {
+        $(this).removeClass("up");
+        $("#previews").slideUp();        
       });
       
       $('#addTrack').click(function(){
@@ -135,47 +153,47 @@
       console.dir(theSong.length);
       r.create_mix(JSON.stringify(theSong));
     }
+    
+    $("body").disableSelect();
 
 </script>
 </head>
 <body>
   <div id="transport">
-    <button id="play"></button>
-    <button id="addTrack"></button>
+    <button id="play" title="Play/Pause"></button>
+    <button id="addTrack" title="Add Track"></button>
+    <button id="down" title="Preview Sounds"></button>
     <h1>JSONLoops</h1>
   </div>
-
+  <div id="previews">
+    <div id="sounds-container">
+      <table id="sounds" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td class=""><img src="img/rest.png" name="rest"></td>          
+            <td class=""><img src="img/kick.png" name="kick"></td>
+            <td class=""><img src="img/snare.png" name="snare"></td>
+            <td class=""><img src="img/tick.png" name="tick"></td>
+            <td class=""><img src="img/rest.png"></td>
+            <td class=""><img src="img/rest.png"></td>
+            <td class=""><img src="img/rest.png"></td>
+            <td class=""><img src="img/rest.png"></td>
+            <td class=""><img src="img/rest.png"></td>
+            <td class=""><img src="img/rest.png"></td>
+            <td class=""><img src="img/rest.png"></td>    
+            <td class=""><img src="img/rest.png"></td>
+            <td class=""><img src="img/rest.png"></td>
+            <td class=""><img src="img/rest.png"></td>
+            <td class=""><img src="img/rest.png"></td>
+            <td class=""><img src="img/rest.png"></td>
+            <td class=""><img src="img/rest.png"></td>                                                                            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
   <div id="sequencer-container">
     <table id="sequencer" border="0" cellpadding="0" cellspacing="0"></table>
-  </div>
-
-  <div id="sounds-header">
-    Sound Previews
-  </div>
-  <div id="sounds-container">
-    <table id="sounds" border="0" cellpadding="0" cellspacing="0">
-      <tbody>
-        <tr>
-          <td class=""><img src="img/rest.png" name="rest"></td>          
-          <td class=""><img src="img/kick.png" name="kick"></td>
-          <td class=""><img src="img/snare.png" name="snare"></td>
-          <td class=""><img src="img/tick.png" name="tick"></td>
-          <td class=""><img src="img/rest.png"></td>
-          <td class=""><img src="img/rest.png"></td>
-          <td class=""><img src="img/rest.png"></td>
-          <td class=""><img src="img/rest.png"></td>
-          <td class=""><img src="img/rest.png"></td>
-          <td class=""><img src="img/rest.png"></td>
-          <td class=""><img src="img/rest.png"></td>    
-          <td class=""><img src="img/rest.png"></td>
-          <td class=""><img src="img/rest.png"></td>
-          <td class=""><img src="img/rest.png"></td>
-          <td class=""><img src="img/rest.png"></td>
-          <td class=""><img src="img/rest.png"></td>
-          <td class=""><img src="img/rest.png"></td>                                                                            
-        </tr>
-      </tbody>
-    </table>
   </div>
 
   <div id="sounds-container-dynamic">
