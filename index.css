@@ -1,10 +1,12 @@
 
 body {
 	font-family: Trebuchet MS,Tahoma,Arial,sans-serif;
-	background: #ffffff; /* old browsers */
-	background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* firefox */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* webkit */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* ie */
+	background: #e2e2e2; /* old browsers */
+	background: -moz-linear-gradient(top, #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%); /* firefox */
+
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e2e2e2), color-stop(50%,#dbdbdb), color-stop(51%,#d1d1d1), color-stop(100%,#fefefe)); /* webkit */
+
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe',GradientType=0 ); /* ie */
 }
 
 table tr {
@@ -21,9 +23,9 @@ table td {
 
 table td.active {
 	background: #606c88; /* old browsers */
-	background: -moz-linear-gradient(top, #606c88 0%, #3f4c6b 100%); /* firefox */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#606c88), color-stop(100%,#3f4c6b)); /* webkit */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606c88', endColorstr='#3f4c6b',GradientType=0 ); /* ie */	
+	background: -moz-linear-gradient(top, #444 0%, #222 100%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#444), color-stop(100%,#222)); /* webkit */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#444', endColorstr='#222',GradientType=0 ); /* ie */	
 }
 
 table {
@@ -47,24 +49,35 @@ table {
 }
 
 #transport {
-	margin: 100px;
+	margin: 20px;
 	margin-bottom: 0px;
-	margin-top: 20px;
+	margin-top: 30px;
+	position: relative;
 }
 
 h1 {
-	margin-top: 50px;
-	font-size: 50px;
+	color: #fff;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 1);	
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-size: 30px;
+	position: absolute;
+	top: -10px;
+	right: 10px;
 }
 
 #sounds-header {
-	margin-left: 100px;
-	margin-right: 100px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#sounds-inline a {
+	display: block;
 }
 
 #sequencer-container, #sounds-container {
 	position: relative;
-	margin: 100px;
+	margin: 20px;
 	margin-top: 0px;
 	margin-bottom: 20px;
 	-webkit-border-radius: 10px;

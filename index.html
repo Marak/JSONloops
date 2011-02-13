@@ -30,30 +30,35 @@
       $('#addTrack').click(function(){
         addTrack();
       });
-      
+
       var report;
-      
+
       $("#sequencer-container img").live("click", function() {
+
         $("#sounds-container-dynamic").css({
           "top": $(this).offset().top - 31,
           "left": $(this).offset().left - 31
         }).fadeIn();
-        
+
         var parent = $(this).parent();
-        
+
         report = {
           track: parent.attr("data-track"),
           measure: parent.attr("data-measure"),
           beat: parent.attr("data-beat")
-        };        
-        
+        };
+
+        $('#sounds-container-dynamic').scrollTop(0);
+        $('#sounds-container-dynamic').scrollTop($("#sounds-inline a[name='"+$(this)[0].name+"']").position().top - 31);
+
       });
       
-      $("#sounds-container-dynamic img").click(function() {
+      $("#sounds-container-dynamic a").click(function() {
         
         report.sound = $(this)[0].name;
-        
+
         console.log(report);
+        $("#sounds-container-dynamic").scrollTop(0);
         $("#sounds-container-dynamic").fadeOut();
       });
       
@@ -97,7 +102,7 @@
             if(f == "") {
               f = "rest";
             }
-            $('#sequencer tr:last').append('<td class = "' + style + '" data-track="'+t+'" data-measure="'+m+'" data-beat="'+b+'"><img src="img/' + f + '.png"/></td>');
+            $('#sequencer tr:last').append('<td class = "' + style + '" data-track="'+t+'" data-measure="'+m+'" data-beat="'+b+'"><img src="img/' + f + '.png" name="'+f+'"/></td>');
 
             // var el = $('#sequencer td.active:first');
             //            if(el.length) {
@@ -134,12 +139,10 @@
 </script>
 </head>
 <body>
-  <center>
-    <h1>JSONLoops</h2>
-  </center>
   <div id="transport">
     <button id="play"></button>
     <button id="addTrack"></button>
+    <h1>JSONLoops</h1>
   </div>
 
   <div id="sequencer-container">
@@ -176,22 +179,19 @@
   </div>
 
   <div id="sounds-container-dynamic">
-    <table id="sounds" border="0" cellpadding="0" cellspacing="0">
+    <table id="sounds-inline" border="0" cellpadding="0" cellspacing="0">
       <tbody>
         <tr>
-          <td class=""><img src="img/rest.png" name="rest"></td>
+          <td class=""><a name="rest"><img src="img/rest.png"></a></td>
         </tr>
         <tr>
-          <td class=""><img src="img/kick.png" name="kick"></td>
+          <td class=""><a name="kick"><img src="img/kick.png"></a></td>
         </tr>
         <tr>          
-          <td class=""><img src="img/snare.png" name="snare"></td>
+          <td class=""><a name="snare"><img src="img/snare.png"></a></td>
         </tr>
         <tr>                    
-          <td class=""><img src="img/tick.png" name="tick"></td>
-        </tr>
-        <tr>                    
-          <td class=""><img src="img/rest.png"></td>
+          <td class=""><a name="tick"><img src="img/tick.png"></a></td>
         </tr>
       </tbody>
     </table>

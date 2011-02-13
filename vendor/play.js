@@ -1,7 +1,7 @@
 // play.js - Marak Squires
 // Mit yo, copy paste us some credit
-var irrKlang = require(__dirname + "/../../node-irrklang/lib/irrklang").irrKlang,
-    player   = new irrKlang();
+// var irrKlang = require(__dirname + "/../../node-irrklang/lib/irrklang").irrKlang,
+//    player   = new irrKlang();
 
 if(typeof exports === 'undefined'){
 
@@ -62,7 +62,7 @@ else{
   exports.sound = function(filename, callback){
     sys.puts('playing'.grey + ' -> '.yellow + filename.toString().magenta);
 
-    player.play(filename);
+    //player.play(filename);
 
     /*
     var commands = [text];
