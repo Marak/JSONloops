@@ -126,6 +126,7 @@
           }).fadeIn();          
         }
         else {
+          $("#sequencer-mask").fadeIn();
           $("#sounds-container-dynamic").css({
             "top": ($("#sequencer-container").position().top + 40),
             "left": ($("body").width()/2) - ($(note).width()/2)
@@ -152,6 +153,7 @@
         r.create_mix(JSON.stringify(theSong));
         $("#sounds-container-dynamic").scrollTop(0);
         $("#sounds-container-dynamic").fadeOut();
+        $("#sequencer-mask").fadeOut();        
       });
       
     });
@@ -364,6 +366,7 @@
   </div>  
   <div id="sequencer-container">
     <table id="sequencer" border="0" cellpadding="0" cellspacing="0"></table>
+    <dic id="sequencer-mask"></div>
   </div>
 
   <div id="sounds-container-dynamic">
