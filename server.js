@@ -20,8 +20,10 @@ sys = require('sys');
 
 //var song = fs.readFileSync('./loops/metronome.json');
 
+var songName = process.argv[2] || 'nyc';
+
 // Load the NYC.json song
-var song = fs.readFileSync('./loops/nyc.json');
+var song = fs.readFileSync('./loops/' + songName + '.json');
 
 // Load up a drum kit
 var drums = require('./kits/drums').drums;

@@ -165,7 +165,9 @@
     function connectToServer() {
       socket = DNode(function () {
         this.step = function (sequencer) {
-          
+          if (sequencer.song) {
+            theSong = sequencer.song;
+          }
           if(($('#sequencer tr').length === 0) || $('#sequencer tr').length !== sequencer.song.length) {
             renderSequencer(sequencer);
           }
@@ -305,7 +307,7 @@
         }
         track.push(beats);
       }
-      console.log(track);
+
       theSong.push(track);
       r.create_mix(JSON.stringify(theSong));
     }
@@ -361,8 +363,8 @@
             <td class=""><img src="img/piano.png" name="pianorole" title="Piano Role"></td>
             <td class=""><img src="img/bell.png" name="bell" title="Cow Bell"></td>            
             <td class=""><img src="img/tambourine.png" name="tambourine" title="Tambourine"></td>
-            <td class=""><img src="img/bongoSmall.png" name="bongoSmall" title="Small Bongo"></td>
-            <td class=""><img src="img/bongoBig.png" name="bongoBig" title="Large Bongo"></td>
+            <td class=""><img src="img/bongosmall.png" name="bongosmall" title="Small Bongo"></td>
+            <td class=""><img src="img/bongobig.png" name="bongobig" title="Large Bongo"></td>
           </tr>
         </tbody>
       </table>
@@ -407,10 +409,10 @@
           <td class=""><a name="tambourine"><img src="img/tambourine.png" name="tambourine" title="Tambourine"></a></td>
         </td>
         <tr>
-          <td class=""><a name="bongoSmall"><img src="img/bongoSmall.png" name="bongoSmall" title="Small Bongo"></a></td>
+          <td class=""><a name="bongosmall"><img src="img/bongosmall.png" name="bongosmall" title="Small Bongo"></a></td>
         </td>
         <tr>
-          <td class=""><a name="bongoBig"><img src="img/bongoBig.png" name="bongoBig" title="Large Bongo"></a></td>        
+          <td class=""><a name="bongobig"><img src="img/bongobig.png" name="bongobig" title="Large Bongo"></a></td>        
         </td>
 
         
