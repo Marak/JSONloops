@@ -93,10 +93,6 @@ h1 {
 	padding-right: 70px;
 }
 
-#extras-container {
-	bottom-margin: 0px;
-	background-color: #333;
-}
 
 #sequencer-container, #sounds-container, #extras-container {
 	margin: 20px;
@@ -209,18 +205,18 @@ div::-webkit-scrollbar-thumb {
 }
 
 #zoom {
-	left: 150px;
-	width: 150px;	
+	left: 145px;
+	width: 100px;	
 }
 
 #masterVolume {
 	width: 100px;	
-	left: 320px;
+	left: 260px;
 }
 
 #bpm {
 	width: 100px;	
-	left: 320px;
+	left: 375px;
 }
 
 #zoom .ui-slider-handle, #bpm .ui-slider-handle, #masterVolume .ui-slider-handle {
@@ -244,7 +240,7 @@ div::-webkit-scrollbar-thumb {
 #zoomLabel {
 	position: absolute;
 	top: 5px;
-	left: 205px;
+	left: 175px;
 	color: #666;
 	font-size: 10px;
 	width: 200px;	
@@ -255,7 +251,7 @@ div::-webkit-scrollbar-thumb {
 	position: absolute;
 	font-size: 10px;	
 	top: 5px;
-	left: 350px;	
+	left: 290px;	
 	width: 200px;
 }
 
@@ -265,7 +261,7 @@ div::-webkit-scrollbar-thumb {
 	position: absolute;
 	font-size: 10px;	
 	top: 5px;
-	left: 350px;	
+	left: 405px;	
 	width: 200px;
 }
 
