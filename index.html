@@ -24,6 +24,10 @@
       
       $("body").disableSelection();
       
+      $(window).resize(function() {
+        $("#sounds-container-dynamic").fadeOut();
+      });
+      
       $("#zoom").slider({
         min: 20,
         max: 150,
