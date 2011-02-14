@@ -1,3 +1,7 @@
+# Disclaimer
+
+THIS CODE WAS WRITTEN WITHIN HOURS FOR A COMPETITION, IT WAS CLOBBERED TOGETHER FROM EXISTING JAVASCRIPT AND HTML, IT IS PURE POC.
+
 # JSONLoops
 
 JSONLoops is a multi-user audio sequencer reminiscent of Fruityloops. Audio playback is handled by node.js servers, while multiple browsers act as control devices. Songs are stored in the JSONloop format, which are simply nested JSON arrays. 
@@ -38,7 +42,7 @@ Check out the [nyc.json](https://github.com/Marak/JSONloops/blob/master/loops/ny
 
 ## Authors
 
-[Marak Squires](https://github.com/marak/) - Created project, invented the JSONloops format, built core sequencing code
+[Marak Squires](https://github.com/marak/) - Created project, JavaScript, HTML, CSS, invented the JSONloops format, built core sequencing code
 
 [Elijah Insua](https://github.com/tmpvar/) - Writer of C bindings, solver of the hard problems
 
