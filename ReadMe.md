@@ -45,6 +45,8 @@ A JSONLoop is nothing but a nested JSON array that follows a somewhat specific f
   
 Check out the [nyc.json](https://github.com/Marak/JSONloops/blob/master/loops/nyc.json) file or [metronome.json](https://github.com/Marak/JSONloops/blob/master/loops/metronome.json) file for example loops.
 
+*can anyone create a proper json-schema to represent this? it also has to validate the loop is well formed...*
+
 ## Authors
 
 [Marak Squires](https://github.com/marak/) - Created project, JavaScript, HTML, CSS, invented the JSONloops format, built core sequencing code
