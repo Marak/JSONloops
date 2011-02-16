@@ -1,0 +1,119 @@
+<html>
+<head>
+<title>JSONLoops Basic HTML / JavaScript Control Interface</title>
+<link rel="stylesheet" href="js/vendor/jquery-ui-1.8.9.custom/css/ui-lightness/jquery-ui-1.8.9.custom.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<script src="js/vendor/jquery-ui-1.8.9.custom/js/jquery-1.4.4.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/vendor/jquery-ui-1.8.9.custom/js/jquery-ui-1.8.9.custom.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/dnode.js"></script>
+<link rel="stylesheet" href="css/index.css" type="text/css" media="screen" title="no title" charset="utf-8">
+<script type="text/javascript" src="js/JSONloops.js"></script>
+</head>
+<body>
+  <div id="transport">
+    <div id="titles">
+      <span id="title">New York Beat</span><br/>
+      <span id="subtitle">Foobar Special</span>
+    </div>
+    <div id="controls">
+      <button id="play" title="Play/Pause"></button>
+      <button id="addTrack" title="Add Track"></button>
+      <button id="sounds-button" title="Preview Sounds"></button>
+      <!-- button id="extras-button" title="Extras"></button -->
+      <span id="zoomLabel">Zoom <span id="zoomLevel">100</span>%</span>
+      <div id="zoom"></div>
+      <span id="masterVolumeLabel">Volume <span id="masterVolumeLevel">80</span></span>
+      <div id="masterVolume"></div>
+      <span id="bpmLabel">BPM <span id="bpmLevel">180</span></span>
+      <div id="bpm"></div>            
+    </div>
+    <h1>JSONLoops</h1>
+  </div>
+  <!-- div id="extra-controls">
+    <div id="extras-container">
+      <table id="extras" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td class=""><img src="img/saveJSON.png" name="kick" title="Kick"></td>
+            <td class=""><img src="img/uploadJSON.png" name="snare" title="Snare"></td>
+            <td class=""></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div -->
+  <div id="previews">
+    <div id="sounds-container">
+      <table id="sounds" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td class=""><img src="img/rest.png" name="rest" title="Rest"></td>
+            <td class=""><img src="img/kick.png" name="kick" title="Kick"></td>
+            <td class=""><img src="img/snare.png" name="snare" title="Snare"></td>
+            <td class=""><img src="img/tick.png" name="tick" title="High Hat"></td>
+            <td class=""><img src="img/tom.png" name="tom" title="Tom"></td>
+            <td class=""><img src="img/crash.png" name="crash" title="Crash"></td>
+            <td class=""><img src="img/ride.png" name="ride" title="Ride"></td>
+            <td class=""><img src="img/divide.png"></td>
+            <td class=""><img src="img/piano.png" name="pianorole" title="Piano Role"></td>
+            <td class=""><img src="img/bell.png" name="bell" title="Cow Bell"></td>            
+            <td class=""><img src="img/tambourine.png" name="tambourine" title="Tambourine"></td>
+            <td class=""><img src="img/bongosmall.png" name="bongosmall" title="Small Bongo"></td>
+            <td class=""><img src="img/bongobig.png" name="bongobig" title="Large Bongo"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>  
+  <div id="sequencer-container">
+    <table id="sequencer" border="0" cellpadding="0" cellspacing="0"></table>
+    <dic id="sequencer-mask"></div>
+  </div>
+
+  <div id="sounds-container-dynamic">
+    
+    <!-- this section could be auto-generated based on kit -->
+    <table id="sounds-inline" border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class=""><a name="rest"><img src="img/rest.png"></a></td>
+        </tr>
+        <tr>
+          <td class=""><a name="kick"><img src="img/kick.png"></a></td>
+        </tr>
+        <tr>          
+          <td class=""><a name="snare"><img src="img/snare.png"></a></td>
+        </tr>
+        <tr>                    
+          <td class=""><a name="tick"><img src="img/tick.png"></a></td>
+        </tr>
+        <tr>           
+          <td class=""><a name="tom"><img src="img/tom.png" name="tom" title="Tom"></a></td>
+        </tr>
+        <tr>           
+          <td class=""><a name="crash"><img src="img/crash.png" name="crash" title="Crash"></a></td>
+        </tr>
+        <tr>
+          <td class=""><a name="ride"><img src="img/ride.png" name="ride" title="Ride"></a></td>
+        </tr>
+        <tr>
+          <td class=""><a name="piano"><img src="img/piano.png" name="pianorole" title="Piano Role"></a></td>
+        </tr>
+        <tr>
+          <td class=""><a name="bell"><img src="img/bell.png" name="bell" title="Cow Bell"></a></td>
+        </td>        
+        <tr>
+          <td class=""><a name="tambourine"><img src="img/tambourine.png" name="tambourine" title="Tambourine"></a></td>
+        </td>
+        <tr>
+          <td class=""><a name="bongosmall"><img src="img/bongosmall.png" name="bongosmall" title="Small Bongo"></a></td>
+        </td>
+        <tr>
+          <td class=""><a name="bongobig"><img src="img/bongobig.png" name="bongobig" title="Large Bongo"></a></td>        
+        </td>
+      </tbody>
+    </table>
+  </div>
+
+    
+</body>
+</html>
