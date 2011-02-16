@@ -80,7 +80,7 @@ function LoopServer (client, con) {
 
 var connect = require('connect');
 var server = connect.createServer()
-    .use(connect.staticProvider(__dirname))
+    .use(connect.staticProvider(__dirname + '/public'))
     .listen(8080);
 
 var DNode = require('dnode');
