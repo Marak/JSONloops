@@ -11,6 +11,7 @@ JSONLoops is a multi-user audio sequencer reminiscent of Fruityloops. Audio play
 
 [http://www.youtube.com/watch?v=MSZLLgel6Gs](http://www.youtube.com/watch?v=MSZLLgel6Gs)
 
+# Warning: The current installation process for JSONloops is not complete. We were in a rush to make a working prototype and we haven't bundled all the deps correctly into a NPM package. We'll have a NPM package published shortly.
 
 ## Installation (coming soon)
 
