@@ -1,18 +1,21 @@
+
+# JSONLoops
+
+JSONLoops is a multi-user audio sequencer reminiscent of Fruityloops. Audio playback is handled by node.js servers, while multiple browsers act as control devices. Songs are stored in the JSONloop format, which are simply nested JSON arrays.
+
 # Disclaimer
 
-This is Alpha software which was created for NYC Music Hack Day 2011. We won best colloborative project. This library works and is awesome. It could be epic if we all work on it. 
+This is Alpha software which was created for NYC Music Hack Day 2011. We won best collaborative project. This library works and is awesome. It could be epic if we all work on it. 
 
 # KickStarter!!
 
 We are currently trying to raise money to make JSONloops a "real" project, instead of just a proof of concept. Please visit: [http://www.kickstarter.com/projects/1141308765/jsonloops-open-source-real-time-multiuser-audio-se?ref=live](http://www.kickstarter.com/projects/1141308765/jsonloops-open-source-real-time-multiuser-audio-se?ref=live) to read more.
 
-# JSONLoops
-
-JSONLoops is a multi-user audio sequencer reminiscent of Fruityloops. Audio playback is handled by node.js servers, while multiple browsers act as control devices. Songs are stored in the JSONloop format, which are simply nested JSON arrays. 
-
 # Video Demo
 
 [http://www.youtube.com/watch?v=MSZLLgel6Gs](http://www.youtube.com/watch?v=MSZLLgel6Gs)
+
+<img src="https://github.com/Marak/JSONloops/raw/master/logo.png"/>
 
 # Warning: The current installation process for JSONloops is not complete. We were in a rush to make a working prototype and we haven't bundled all the deps correctly into a NPM package. We'll have a NPM package published shortly.
 
