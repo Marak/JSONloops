@@ -13,7 +13,7 @@ JSONloops is a javascript audio sequencer that runs on JSON arrays of sounds
 
   *******************************/
 
-var Looper = require('JSONloops').Looper,
+var Looper = require('./lib/looper').Looper,
 fs = require('fs'),
 colors = require('./vendor/color'),
 sys = require('sys');

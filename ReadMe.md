@@ -34,6 +34,8 @@ We'll be replacing this last step with a much easier process soon.
 
 ## Usage
 
+To get started, you'll want to clone the JSONloops project and use the demo server
+
     git clone https://github.com/marak/jsonloops
     cd jsonloops
     node server.js
