@@ -1,7 +1,7 @@
 {
   "name": "JSONloops",
   "description": "a real-time multiuser audio sequencer",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/Marak/JSONloops",
   "repository": {
     "type": "git",
