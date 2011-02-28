@@ -22,8 +22,15 @@ We are currently trying to raise money to make JSONloops a "real" project, inste
 ## Installation (coming soon)
 
    npm install JSONloops
+   
+Now you will have to rebuild node as 32bit, since irrKlang doesn't support 64 arch's yet.
 
-You'll also need to install irrKlang and compile node as 32 bit. We'll be replacing this with a much easier process soon.
+   cd /path/to/node
+   ./configure --dest-cpu=ia32
+   make
+   make install
+
+We'll be replacing this last step with a much easier process soon.
 
 ## Usage
 
