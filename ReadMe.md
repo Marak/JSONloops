@@ -17,18 +17,16 @@ We are currently trying to raise money to make JSONloops a "real" project, inste
 
 <img src="https://github.com/Marak/JSONloops/raw/master/logo.png"/>
 
-# Warning: The current installation process for JSONloops is not complete. We were in a rush to make a working prototype and we haven't bundled all the deps correctly into a NPM package. We'll have a NPM package published shortly.
+## Installation
 
-## Installation (coming soon)
-
-   npm install JSONloops
+      npm install JSONloops
    
 Now you will have to rebuild node as 32bit, since irrKlang doesn't support 64 arch's yet.
 
-   cd /path/to/node
-   ./configure --dest-cpu=ia32
-   make
-   make install
+      cd /path/to/node
+      ./configure --dest-cpu=ia32
+      make
+      make install
 
 We'll be replacing this last step with a much easier process soon.
 

@@ -11,7 +11,6 @@
   "directories": {
     "lib": "lib"
   },
-  "main"          : "./lib",
   "dependencies": {
     "irrklang": ">= 0.0.1"
   },
