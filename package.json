@@ -15,6 +15,9 @@
     "irrklang": ">= 0.0.1",
     "connect":  ">= 1.0.0"
   },
+  "scripts": {
+   "start":"server.js"
+  }
   "engines": {
     "node": "*"
   }
