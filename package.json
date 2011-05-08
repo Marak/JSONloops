@@ -16,6 +16,9 @@
     "connect":  ">= 1.0.0",
     "dnode": ">= 0.6.x"
   },
+  "scripts": {
+   "start":"server.js"
+  }
   "engines": {
     "node": "*"
   }
