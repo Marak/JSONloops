@@ -1,26 +1,13 @@
 {
-  "name": "JSONloops",
-  "description": "a real-time multiuser audio sequencer",
-  "version": "0.1.1",
-  "homepage": "https://github.com/Marak/JSONloops",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/Marak/JSONloops.git"
-  },
-  "author": "Marak Squires <marak.squires@gmail.com>",
-  "directories": {
-    "lib": "lib"
+  "name": "jsonloops",
+  "subdomain": "jsonloops",
+  "scripts": {
+    "start": "server.js"
   },
   "dependencies": {
     "irrklang": ">= 0.0.1",
-    "connect":  ">= 1.0.0",
+    "connect": ">= 1.0.0",
     "dnode": ">= 0.6.x"
   },
-  "scripts": {
-   "start":"server.js"
-  }
-  "engines": {
-    "node": "*"
-  }
+  "version": "0.0.0-4"
 }
-

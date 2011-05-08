@@ -7,10 +7,6 @@ JSONLoops is a multi-user audio sequencer reminiscent of Fruityloops. Audio play
 
 This is Alpha software which was created for NYC Music Hack Day 2011. We won best collaborative project. This library works and is awesome. It could be epic if we all work on it. 
 
-# KickStarter!!
-
-We are currently trying to raise money to make JSONloops a "real" project, instead of just a proof of concept. Please visit: [http://www.kickstarter.com/projects/1141308765/jsonloops-open-source-real-time-multiuser-audio-se?ref=live](http://www.kickstarter.com/projects/1141308765/jsonloops-open-source-real-time-multiuser-audio-se?ref=live) to read more.
-
 # Video Demo
 
 [http://www.youtube.com/watch?v=MSZLLgel6Gs](http://www.youtube.com/watch?v=MSZLLgel6Gs)

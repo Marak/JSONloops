@@ -103,19 +103,24 @@
 
     $("#sequencer-container").live("click", function(e) {
 
+      // Do a bit of event delegation to determine if current target is an img tag ( and a note )
       var note = e.target;
       if($(note).get(0).tagName !== "IMG") {
-        console.log($(note).get(0).tagName);
         return false;
       }
 
+      // Seems to be an offset if you are zoomed in a bunch? Perhaps for iPad?
       if(iconZoom == 100) {
+        
+        // Render the note selection window
         $("#sounds-container-dynamic").css({
           "top": $(note).offset().top - 31,
           "left": $(note).offset().left - 31
         }).fadeIn();          
       }
       else {
+        
+        // Render the note selection window
         $("#sequencer-mask").fadeIn();
         $("#sounds-container-dynamic").css({
           "top": ($("#sequencer-container").position().top + 40),
@@ -136,13 +141,28 @@
 
     });
     
+    // When you click "close" on the sounds-container
+    $(".close").click(function() {
+      $("#sounds-container-dynamic").scrollTop(0);
+      $("#sounds-container-dynamic").fadeOut();
+      $("#sequencer-mask").fadeOut();        
+      return false;
+    });
+    
+    // When you click on a note
     $("#sounds-container-dynamic a").click(function() {
-      report.sound = $(this)[0].name;
-      // Sync up the song
-      //theSong[report.track][report.measure][report.beat] = ['./wavs/' + report.sound + '.wav'];
-      //r.create_mix(JSON.stringify(theSong));
-      r.beat(report.track, report.measure, report.beat, ['./wavs/' + report.sound + '.wav'])
       
+      
+      // Get a report of the current hit note
+      report.sound = $(this)[0].name;
+      
+      // Sync up the song based on the note report
+      r.beat(report.track, report.measure, report.beat, './wavs/' + report.sound + '.wav')
+      //theSong[report.track][report.measure][report.beat] = './wavs/' + report.sound + '.wav';
+      //r.create_mix(JSON.stringify(theSong));
+      
+
+      // Reset UI container
       $("#sounds-container-dynamic").scrollTop(0);
       $("#sounds-container-dynamic").fadeOut();
       $("#sequencer-mask").fadeOut();        
@@ -151,6 +171,8 @@
       $("body").delay(500).fadeIn('slow');      
     
   });
+  
+
 
   function connectToServer() {
     socket = DNode(function () {
@@ -193,6 +215,7 @@
 
         $(v).attr('data-note', c);
         
+        // This line doesn't look very sturdy at all. :-(
         var f = c.substr(c.lastIndexOf("/")+1, c.lastIndexOf(".")-7);
         
         if(f == '') {
@@ -248,12 +271,12 @@
             style = "active"; 
           }
           
-          if(typeof beat != "string") {
-            beat = beat[0];
+          if(typeof beat !== "string") {
+            beat = beat[0] || beat[0].toString() || '';
           }
 
           // This line doesn't look very sturdy at all. :-(
-          var f = beat.substr(beat.lastIndexOf("/")+1, beat.lastIndexOf(".")-6);
+          var f = beat.substr(beat.lastIndexOf("/")+1, beat.lastIndexOf(".")-7);
 
           if(f == '') {
             f = 'rest';
@@ -291,7 +314,6 @@
   function addTrack() {
     
     //theSong.push(JSON.parse(JSON.stringify(theSong[0])));
-    console.log(JSON.stringify(theSong[0]));
     var ml= theSong[0].length, m=0, b=0, bl = theSong[0][0].length, beats, track = [];
 
     for (m; m<ml; m++) {
