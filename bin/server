@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+
+require.paths.unshift(require('path').join(__dirname, '..', 'lib'));
+
+var util = require('util'),
+    colors = require('colors'),
+    argv = require('optimist').argv,
+    JSONloops = require('JSONloops');
+
+var help = [
+    'usage: server [options]',
+    '',
+    'Starts a JSONloops server',
+    '',
+    'options:',
+    '  -a             IP Address that you want the server to bind to  [localhost]',
+    '  -p             Port that you want the server to run on         [8080]',
+    '  -j             List of JSONloops server you wish to sync with         ', 
+    '  -s --silent    Suppress the log messages from the output',
+    '  -h, --help     You\'re staring at it',
+].join('\n');
+
+if (argv.h || argv.help) {
+  return util.puts(help);
+}
+
+
+var env     = argv.env || 'development',
+    logger  = typeof argv.logger !== 'undefined' ? argv.logger : true,
+    port    = argv.p   || 8080,
+    servers = [];
+    
+    if (argv.j) {
+      servers = argv.j.split(','); 
+    }
+    
+JSONloops.start({
+  port: port,
+  servers: servers
+});

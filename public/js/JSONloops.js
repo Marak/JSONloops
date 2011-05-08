@@ -166,7 +166,7 @@
           
         }
       };
-    }).connect(function (remote) {
+    }).connect({ reconnect: 500 }, function (remote) {
       playing = true;
       r = remote;
     });
@@ -185,14 +185,16 @@
       t = $(v).attr('data-track');
       n = $(v).attr('data-note');
       
-      
       var c = sequencer.song[t][m][b][0] || '';
       
+      c = c.toString();
+      
       if(c !== n){
-        console.log('update this note');
+
         $(v).attr('data-note', c);
         
         var f = c.substr(c.lastIndexOf("/")+1, c.lastIndexOf(".")-7);
+        
         if(f == '') {
           f = 'rest';
         }
@@ -249,8 +251,10 @@
           if(typeof beat != "string") {
             beat = beat[0];
           }
-          
-          var f = beat.substr(beat.lastIndexOf("/")+1, beat.lastIndexOf(".")-7);
+
+          // This line doesn't look very sturdy at all. :-(
+          var f = beat.substr(beat.lastIndexOf("/")+1, beat.lastIndexOf(".")-6);
+
           if(f == '') {
             f = 'rest';
           }
