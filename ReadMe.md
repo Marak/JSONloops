@@ -1,4 +1,3 @@
-
 # JSONLoops
 
 JSONLoops is a multi-user audio sequencer reminiscent of Fruityloops. Audio playback is handled by node.js servers, while multiple browsers act as control devices. Songs are stored in the JSONloop format, which are simply nested JSON arrays.
@@ -30,7 +29,7 @@ We'll be replacing this last step with a much easier process soon.
 
 To get started, you'll want to clone the JSONloops project and use the demo server
 
-    git clone https://github.com/marak/jsonloops
+    git clone https://github.com/Marak/JSONloops.git
     cd jsonloops
     node server.js
   
