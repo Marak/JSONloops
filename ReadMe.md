@@ -31,6 +31,7 @@ To get started, you'll want to clone the JSONloops project and use the demo serv
 
     git clone https://github.com/Marak/JSONloops.git
     cd jsonloops
+    [sudo] npm install .
     node server.js
   
 The audio sequencer will now start playing on your local machine, you'll hear sounds. To access a control interface for your JSONloops server, visit http://localhost:8080/
