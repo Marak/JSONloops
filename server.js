@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 require.paths.unshift(require('path').join(__dirname, 'lib'));
 
 var JSONloops = require('JSONloops');
