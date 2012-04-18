@@ -4,10 +4,19 @@
 var player;
 
 try {
-  var irrKlang = require(__dirname + "/../../node-irrklang/lib/irrklang").irrKlang
-  player = new irrKlang()
+  console.warn("trying irrklang");
+  var irrKlang = require(__dirname + "/../../node-irrklang/lib/irrklang").irrKlang;
+  player = new irrKlang();
 } catch (e) {
-  player = { play : function() { /* noop */ } };
+
+  try {
+    console.warn("trying sdlmixer");
+    player = require("sdlmixer");
+
+  } catch (e) {
+    console.warn("giving up, using stub");
+    player = { play : function() { /* noop */ } };
+  }
 }
 
 if(typeof exports === 'undefined'){
