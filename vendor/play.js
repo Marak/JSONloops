@@ -55,7 +55,7 @@ if(typeof exports === 'undefined'){
 }
 else{
 
-  var sys = require('sys')
+  var util = require('util')
     , http = require('http')
     , colors = require('./color');
 
