@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/Marak/JSONloops.png)](http://travis-ci.org/Marak/JSONloops)
 # JSONLoops
 
 JSONLoops is a multi-user audio sequencer reminiscent of Fruityloops. Audio playback is handled by node.js servers, while multiple browsers act as control devices. Songs are stored in the JSONloop format, which are simply nested JSON arrays.
